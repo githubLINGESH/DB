@@ -1,21 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
 const bodyParser = require('body-parser');
 const router = express.Router();
 
-
-const app = express();
-const port = 3000;
-
-module.exports = router;
-
-
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+// Define your login routes and middleware here
 const myMiddleware = (req, res, next) => {
   // Your middleware logic here
   next();
 };
 router.use(myMiddleware);
+
+router.get('/', (req, res) => {
+  res.send('Login page');
+});
 
 // Connect to the MongoDB database using Mongoose
 const dbURL = 'mongodb+srv://jayran:O9UdszTUcb8j2KA7@cluster0.v6wdfkq.mongodb.net/login?retryWrites=true&w=majority';
@@ -26,32 +25,6 @@ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((error) => {
     console.error('Error connecting to MongoDB', error);
   });
-
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
-
-//sample
-app.use('/css',express.static(path.resolve(__dirname,"styles/css")))
-app.use('/js',express.static(path.resolve(__dirname,"assets/js")))
-app.use('/img',express.static(path.resolve(__dirname,"assets/css")))
-app.set("view engine","html")
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
-//sample
-
-// Parse URL-encoded bodies (as sent by HTML forms)
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Parse JSON bodies (as sent by API clients)
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(router);
-
-// Serve the login.html file
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'login.html'));
-});
 
 // Define the login data schema
 const loginSchema = new mongoose.Schema({
@@ -75,7 +48,7 @@ const validateLogin = async (email, password, auth) => {
 };
 
 // Handle the form submission
-app.post('/', (req, res) => {
+router.post('/', (req, res) => {
   const { email, password, auth } = req.body;
 
   // Validate email, password, and authentication code
@@ -95,7 +68,4 @@ app.post('/', (req, res) => {
     });
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server listening on http://localhost:${port}`);
-});
+module.exports = router; // Export the router instance

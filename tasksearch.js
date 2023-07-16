@@ -1,9 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
-const todoRoutes = require('./server/routes/todoRoutes');
-const PORT = process.env.PORT || 5501;
-const app = express();
+const router = express.Router();
 const mongoose = require('mongoose')
 
 const uri = 'mongodb+srv://jayran:' + encodeURIComponent('O9UdszTUcb8j2KA7') + '@cluster0.v6wdfkq.mongodb.net/Site_Activity?retryWrites=true&w=majority';
@@ -17,10 +14,9 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     console.error('Error connecting to the database:', error);
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 
-app.use('/', todoRoutes);
 // Use the `finally` block to close the client connection
 process.on('SIGINT', () => {
     mongoose.connection.close().then(() => {
@@ -28,7 +24,4 @@ process.on('SIGINT', () => {
         process.exit(0);
     });
 });
-
-app.listen(PORT, () => {
-    console.log(`Server started on http://localhost:${PORT}`);
-});
+router.use(require('./server/routes/todoRoutes'));
