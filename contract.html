@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Worker Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="time"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #tasks-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #tasks-table th,
+        #tasks-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #tasks-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+  </style>
+</head>
+<body>
+  <h1>Worker Form</h1>
+  <form method="POST" action="http://localhost:5509/submit">
+    <label for="w_name">Worker Name:</label>
+    <input type="text" id="w_name" name="w_name" required>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" required>
+
+    <label for="w_type">Worker Type:</label>
+    <input type="text" id="w_type" name="w_type" required>
+
+    <label for="start">Start:</label>
+    <input type="date" id="start" name="start" required>
+
+    <label for="end">End:</label>
+    <input type="date" id="end" name="end" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <table id="tasks-table">
+    <thead>
+        <tr>
+            <th>w_name</th>
+            <th>phone</th>
+            <th>w_type</th>
+            <th>start</th>
+            <th>end</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+          const tasksTableBody = document.querySelector('#tasks-table tbody');
+
+      // Function to fetch and display tasks
+      const fetchAndDisplayTasks = () => {
+          fetch('http://localhost:5509/tasks')
+              .then(response => response.json())
+              .then(tasks => {
+                  tasksTableBody.innerHTML = ''; // Clear existing table rows
+  
+                  tasks.forEach(task => {
+                      const row = document.createElement('tr');
+                      row.innerHTML = `
+                          <td>${task.w_name}</td>
+                          <td>${task.phone}</td>   
+                          <td>${task.w_type}</td>
+                          <td>${task.start}</td>
+                          <td>${task.end}</td>
+                      `;
+                      tasksTableBody.appendChild(row);
+                  });
+              })
+              .catch(error => console.error('Error retrieving tasks:', error));
+      };
+  
+      // Fetch tasks when the page loads
+      fetchAndDisplayTasks();
+  
+      // Handle form submission
+      const form = document.querySelector('form');
+      form.addEventListener('submit', event => {
+          event.preventDefault();
+  
+          const formData = new FormData(form);
+          const taskData = {
+              w_name: formData.get('w_name'),
+              phone: formData.get('phone'),
+              w_type: formData.get('w_type'),
+              start: formData.get('start'),
+              end: formData.get('end')
+          };
+  
+          fetch('http://localhost:5509/submit-task', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(taskData)
+          })
+          .then(response => {
+              if (response.ok) {
+                  console.log('Record inserted successfully.');
+                  form.reset();
+                  fetchAndDisplayTasks(); // Update the display with the new task
+              } else {
+                  console.error('Error inserting record.');
+              }
+          })
+          .catch(error => console.error('Error inserting record:', error));
+      });
+  });
+  </script>
+  </body>
+</html>
