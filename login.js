@@ -16,15 +16,6 @@ router.get('/', (req, res) => {
   res.send('Login page');
 });
 
-// Connect to the MongoDB database using Mongoose
-const dbURL = 'mongodb+srv://jayran:O9UdszTUcb8j2KA7@cluster0.v6wdfkq.mongodb.net/login?retryWrites=true&w=majority';
-mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB', error);
-  });
 
 // Define the login data schema
 const loginSchema = new mongoose.Schema({
