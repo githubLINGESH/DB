@@ -21,3 +21,4 @@
     });
     });
     router.use('/',require('./server/routes/materialRoutes'));
+    module.exports = router;

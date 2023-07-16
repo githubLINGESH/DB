@@ -24,3 +24,5 @@
     });
 
     router.use('/', require('./server/routes/addLabourRoutes'));
+    module.exports = router;
+

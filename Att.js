@@ -26,3 +26,6 @@
     const attendanceRoutes = require('./server/routes/attendanceRoutes');
     router.use('/', attendanceRoutes);
 
+    module.exports = router;
+
+

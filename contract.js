@@ -27,3 +27,5 @@ mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
         });
 
 router.use(require('./server/routes/contractRoutes'));
+
+module.exports = router;

@@ -25,3 +25,4 @@ process.on('SIGINT', () => {
     });
 });
 router.use(require('./server/routes/todoRoutes'));
+module.exports = router;
