@@ -10,7 +10,7 @@
         const app = express();
         const port = process.env.PORT || 3000;
 
-        const dbURL = 'mongodb+srv://jayran:' + encodeURIComponent('O9UdszTUcb8j2KA7') + '@cluster0.v6wdfkq.mongodb.net/Site_Activity?retryWrites=true&w=majority';
+        const dbURL = 'mongodb+srv://jayran:' + encodeURIComponent('O9UdszTUcb8j2KA7') + '@cluster0.v6wdfkq.mongodb.net/login?retryWrites=true&w=majority';
             mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
             .then(() => {
                 console.log('Connected to MongoDB');
