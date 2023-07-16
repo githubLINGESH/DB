@@ -1,10 +1,10 @@
         const express = require('express');
         const loginRouter = require('./login.js');
-        const matRouter = require('./mat.js');
-        const contractRouter = require('./contract.js');
-        const attRouter = require('./Att.js');
-        const addLabourRouter = require('./Add-labour.js');
-        const taskSearchRouter = require('./tasksearch.js');
+        const matRouter = require('./server/routes/materialRoutes.js');
+        const contractRouter = require('./server/routes/contractRoutes.js');
+        const attRouter = require('./server/routes/attendanceRoutes.js');
+        const addLabourRouter = require('./server/routes/addLabourRoutes.js');
+        const taskSearchRouter = require('./server/routes/todoRoutes.js');
         const mongoose = require('mongoose')
 
         const app = express();
