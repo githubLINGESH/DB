@@ -3,7 +3,7 @@ const router = express.Router();
 const materialController = require('../controller/materialController');
 
 router.get('/', materialController.getMaterialPage);
-router.get('/tasks', materialController.getTasks);
-router.post('/submit-task', materialController.submitMaterial);
+router.get('/get', materialController.getTasks);
+router.post('/submit', materialController.submitMaterial);
 
 module.exports = router;

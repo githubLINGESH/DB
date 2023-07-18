@@ -69,7 +69,7 @@
 <body>
 <div class="container">
     <h1>Material Order Form</h1>
-    <form action="http://localhost:5502/submit" method="POST">
+    <form action="http://localhost:3000/mat/submit" method="POST">
     <label for="Vendor_name">Vendor Name:</label>
     <input type="text" id="Vendor_name" name="Vendor_name" required>
 
@@ -120,7 +120,7 @@
     
         // Function to fetch and display tasks
         const fetchAndDisplayTasks = () => {
-            fetch('http://localhost:5502/tasks')
+            fetch('http://localhost:3000/mat/get')
                 .then(response => response.json())
                 .then(tasks => {
                     tasksTableBody.innerHTML = ''; // Clear existing table rows
@@ -160,10 +160,10 @@
                 Unit_prize: formData.get('Unit_prize'),
                 Date: formData.get('Date'),
                 Current_stock: formData.get('Current_stock'),
-                enPay_expensesd: formData.get('Pay_expenses')
+                Pay_expenses: formData.get('Pay_expenses') // Corrected property name
             };
     
-            fetch('http://localhost:5502/submit-task', {
+            fetch('http://localhost:3000/mat/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
