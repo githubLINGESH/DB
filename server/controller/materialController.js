@@ -2,11 +2,20 @@
     const S_Material = require('../model/materialModel');
 
     exports.getMaterialPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..','mat.html'));
+    res.sendFile(path.join(__dirname, '..', '..', 'mat.html'));
     };
 
     exports.submitMaterial = async (req, res) => {
-    const { Vendor_name, Name_of_Material, Required_quantity, Supplied_quantity, Unit_prize, Date, Current_stock, Pay_expenses } = req.body;
+    const {
+        Vendor_name,
+        Name_of_Material,
+        Required_quantity,
+        Supplied_quantity,
+        Unit_prize,
+        date, // Rename Date to date or any other meaningful name
+        Current_stock,
+        Pay_expenses,
+    } = req.body;
 
     try {
         const record = new S_Material({
@@ -15,7 +24,7 @@
         Required_quantity: parseInt(Required_quantity),
         Supplied_quantity: parseInt(Supplied_quantity),
         Unit_prize: parseInt(Unit_prize),
-        Date: new Date(Date),
+        date: new Date(date), // Use the renamed variable here
         Current_stock: parseInt(Current_stock),
         Pay_expenses: parseInt(Pay_expenses),
         });

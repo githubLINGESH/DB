@@ -1,11 +1,12 @@
         const express = require('express');
         const loginRouter = require('./login.js');
-        const matRouter = require('./mat.js');
-        const contractRouter = require('./contract.js');
-        const attRouter = require('./Att.js');
-        const addLabourRouter = require('./Add-labour.js');
-        const taskSearchRouter = require('./tasksearch.js');
+        const matRouter = require('./server/routes/materialRoutes.js');
+        const contractRouter = require('./server/routes/contractRoutes.js');
+        const attRouter = require('./server/routes/attendanceRoutes.js');
+        const addLabourRouter = require('./server/routes/addLabourRoutes.js');
+        const taskSearchRouter = require('./server/routes/todoRoutes.js');
         const mongoose = require('mongoose')
+        const bodyParser = require('body-parser');
 
         const app = express();
         const port = process.env.PORT || 3000;
@@ -23,6 +24,11 @@
                 console.error('Error connecting to MongoDB', error);
             });
 
+            app.use(bodyParser.json());
+
+            // Parse incoming URL-encoded form data
+            app.use(bodyParser.urlencoded({ extended: true }));
+
         app.use(express.static(__dirname));
 
         // Mount the routers on the corresponding paths
@@ -31,6 +37,6 @@
         app.use('/contract', contractRouter);
         app.use('/att', attRouter);
         app.use('/add-labour', addLabourRouter);
-        app.use('/task-search', taskSearchRouter);
+        app.use('/todo', taskSearchRouter);
 
 

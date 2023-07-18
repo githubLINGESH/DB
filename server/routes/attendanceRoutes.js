@@ -6,9 +6,9 @@ const attendanceController = require('../controller/attendanceController');
 router.get('/', attendanceController.getAttendancePage);
 
 // POST new attendance record
-router.post('/submit-task', attendanceController.submitAttendance);
+router.post('/submit', attendanceController.submitAttendance);
 
 // GET all attendance records
-router.get('/tasks', attendanceController.getAllAttendance);
+router.get('/display', attendanceController.getAllAttendance);
 
 module.exports = router;

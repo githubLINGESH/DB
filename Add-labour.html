@@ -34,7 +34,7 @@
 <body>
   <div class="form-container">
     <h2>Employee Information</h2>
-    <form action=http://localhost:5510/submit id="employeeForm" method="POST">
+    <form action="http://localhost:3000/add-labour/post" id="employeeForm" method="POST">
       <div class="form-group">
         <label for="laborName">Labor Name</label>
         <input type="text" class="form-control" id="laborName" name="laborName" required>
@@ -99,7 +99,7 @@
 
       // Function to fetch and display tasks
       const fetchAndDisplayTasks = () => {
-          fetch('http://localhost:5510/tasks')
+          fetch('http://localhost:3000/add-labour/get')
               .then(response => response.json())
               .then(tasks => {
                   tasksTableBody.innerHTML = ''; // Clear existing table rows
@@ -141,7 +141,7 @@
             shift: formData.get('shift')
           };
   
-          fetch('http://localhost:5510/submit-task', {
+          fetch('http://localhost:3000/add-labour/post', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'

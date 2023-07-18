@@ -70,7 +70,7 @@
 </head>
 <body>
   <h1>Worker Form</h1>
-  <form method="POST" action="http://localhost:5509/submit">
+  <form method="POST" action="http://localhost:3000/contract/submit">
     <label for="w_name">Worker Name:</label>
     <input type="text" id="w_name" name="w_name" required>
 
@@ -108,7 +108,7 @@
 
       // Function to fetch and display tasks
       const fetchAndDisplayTasks = () => {
-          fetch('http://localhost:5509/tasks')
+          fetch('http://localhost:3000/contract/det')
               .then(response => response.json())
               .then(tasks => {
                   tasksTableBody.innerHTML = ''; // Clear existing table rows
@@ -117,7 +117,7 @@
                       const row = document.createElement('tr');
                       row.innerHTML = `
                           <td>${task.w_name}</td>
-                          <td>${task.phone}</td>   
+                          <td>${task.phone}</td>
                           <td>${task.w_type}</td>
                           <td>${task.start}</td>
                           <td>${task.end}</td>
@@ -145,7 +145,7 @@
               end: formData.get('end')
           };
   
-          fetch('http://localhost:5509/submit-task', {
+          fetch('http://localhost:3000/contract/submit', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json'

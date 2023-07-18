@@ -53,7 +53,7 @@
     </style>
 </head>
 <body>
-    <form id="task-form" action="http://localhost:5501/submit-task" method="POST">
+    <form id="task-form" action="http://localhost:3000/todo/submit-task" method="POST">
         <input type="text" id="task-name-input" name="Taskname" placeholder="Enter" required />
 
         <div id="subtasks-container">
@@ -113,7 +113,7 @@
 
             // Function to fetch and display tasks
             const fetchAndDisplayTasks = () => {
-                fetch('http://localhost:5501/tasks')
+                fetch('http://localhost:3000/todo/tasks')
                     .then(response => response.json())
                     .then(tasks => {
                         tasksTableBody.innerHTML = ''; // Clear existing table rows
@@ -139,7 +139,7 @@
             const searchTasks = () => {
                 const searchValue = searchInput.value;
 
-                fetch('http://localhost:5501/search-tasks', {
+                fetch('http://localhost:3000/todo/search-tasks', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -190,7 +190,7 @@
                     EndDate: formData.get('EndDate')
                 };
 
-                fetch('http://localhost:5501/submit-task', {
+                fetch('http://localhost:3000/todo/submit-task', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
