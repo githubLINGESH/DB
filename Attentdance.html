@@ -24,7 +24,7 @@
     </head>
     <body>
     <h1>Form Submission</h1>
-    <form method="POST" action="http://localhost:3000/att/submit-attendance">
+    <form method="POST" action="http://localhost:3000/att/submit">
         <label for="date">Date:</label>
         <input type="number" id="date" name="date" required><br>
 
@@ -67,7 +67,7 @@
 
             // Function to fetch and display tasks
             const fetchAndDisplayTasks = () => {
-                fetch('http://localhost:3000/att/all-attendance')
+                fetch('http://localhost:3000/att/display')
                     .then(response => response.json())
                     .then(tasks => {
                         tasksTableBody.innerHTML = ''; // Clear existing table rows
@@ -106,7 +106,7 @@
                     w_male: formData.get('w_male')
                 };
         
-                fetch('http://localhost:3000/Att', {
+                fetch('http://localhost:3000/att/submit', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
