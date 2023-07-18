@@ -1,5 +1,5 @@
     const path = require('path');
-    const Labour = require('../model/labourModel');
+    const L_AddLabour = require('../model/labourModel');
 
     exports.getAddLabourPage = (req, res) => {
     res.sendFile(path.join(__dirname, '..', '..', 'Add-labour.html'));
@@ -7,11 +7,11 @@
 
     exports.getTasks = async (req, res) => {
     try {
-        const tasks = await Labour.find();
+        const tasks = await L_AddLabour.find();
         res.status(200).json(tasks);
     } catch (error) {
         console.error('Error retrieving tasks:', error);
-        res.status(500).send('Error retrieving tasks.');
+         res.status(500).send('Error retrieving tasks.');
     }
     };
 
@@ -19,7 +19,7 @@
     const { laborName, duty, gender, attendance, dates, wages, shift } = req.body;
 
     try {
-        const record = new Labour({
+        const record = new L_AddLabour({
         laborName: laborName,
         duty: duty,
         gender: gender,

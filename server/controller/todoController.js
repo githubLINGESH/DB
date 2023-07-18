@@ -1,4 +1,4 @@
-    const To_Do = require('../model/todoModel');
+    const S_ToDo = require('../model/todoModel');
     const path = require('path')
 
     exports.getTodoPage = (req, res) => {
@@ -9,7 +9,7 @@
     const { Taskname, Subtask, StartDate, EndDate } = req.body;
 
     try {
-        const record = new To_Do({
+        const record = new S_ToDo({
         Task_name: Taskname,
         Sub_Tasks: Subtask.map((subtask) => ({
             Sub_Task_name: subtask,
@@ -32,7 +32,7 @@
 
     exports.getTasks = async (req, res) => {
     try {
-        const tasks = await To_Do.find();
+        const tasks = await S_ToDo.find();
 
         res.status(200).json(tasks);
     } catch (error) {
@@ -45,7 +45,7 @@
     const { taskName } = req.body;
 
     try {
-        const tasks = await To_Do.find({ Task_name: taskName });
+        const tasks = await S_ToDo.find({ Task_name: taskName });
 
         res.status(200).json(tasks);
     } catch (error) {

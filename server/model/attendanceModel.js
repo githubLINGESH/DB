@@ -9,6 +9,6 @@ const attendanceSchema = new mongoose.Schema({
   w_male: Number,
 });
 
-const Attendance = mongoose.model('Attendance', attendanceSchema);
+const L_Attendance = mongoose.model('L_Attendance', attendanceSchema);
 
-module.exports = Attendance;
+module.exports = L_Attendance;

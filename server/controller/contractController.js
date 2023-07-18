@@ -1,4 +1,4 @@
-const Contract = require('../model/contractModel');
+const L_Contract = require('../model/contractModel');
 const path = require('path');
 
 exports.getpage = async(req,res) => {
@@ -9,7 +9,7 @@ exports.submitTask = async (req, res) => {
   const { w_name, phone, w_type, start, end } = req.body;
 
   try {
-    const record = new Contract({
+    const record = new L_Contract({
       w_name: w_name,
       phone: phone,
       w_type: w_type,
@@ -29,7 +29,7 @@ exports.submitTask = async (req, res) => {
 
 exports.getTasks = async (req, res) => {
   try {
-    const tasks = await Contract.find();
+    const tasks = await L_Contract.find();
     res.status(200).json(tasks);
   } catch (error) {
     console.error('Error retrieving tasks:', error);

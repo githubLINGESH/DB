@@ -23,6 +23,6 @@ const contractSchema = new mongoose.Schema({
   },
 });
 
-const Contract = mongoose.model('Contract', contractSchema);
+const L_Contract = mongoose.model('L_Contract', contractSchema);
 
-module.exports = Contract;
+module.exports = L_Contract;

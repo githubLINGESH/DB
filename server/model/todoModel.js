@@ -13,6 +13,6 @@
     Work_done: String,
     });
 
-    const To_Do = mongoose.model('ToDo', toDoSchema);
+    const S_ToDo = mongoose.model('S_ToDo', toDoSchema);
 
-    module.exports = To_Do;
+    module.exports = S_ToDo;
