@@ -11,6 +11,6 @@
     Pay_expenses: Number,
     });
 
-    const Material = mongoose.model('Material', materialSchema);
+    const S_Material = mongoose.model('S_Material', materialSchema);
 
-    module.exports = Material;
+    module.exports = S_Material;

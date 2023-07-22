@@ -1,5 +1,5 @@
     const path = require('path');
-    const Material = require('../model/materialModel');
+    const S_Material = require('../model/materialModel');
 
     exports.getMaterialPage = (req, res) => {
     res.sendFile(path.join(__dirname, '..', '..', 'mat.html'));
@@ -18,7 +18,7 @@
     } = req.body;
 
     try {
-        const record = new Material({
+        const record = new S_Material({
         Vendor_name: Vendor_name,
         Name_of_Material: Name_of_Material,
         Required_quantity: parseInt(Required_quantity),
@@ -41,7 +41,7 @@
 
     exports.getTasks = async (req, res) => {
     try {
-        const tasks = await Material.find();
+        const tasks = await S_Material.find();
         res.status(200).json(tasks);
     } catch (error) {
         console.error('Error retrieving tasks:', error);

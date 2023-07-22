@@ -1,4 +1,4 @@
-const Attendance = require('../model/attendanceModel');
+const L_Attendance = require('../model/attendanceModel');
 const path = require('path')
 
 // GET home page
@@ -11,7 +11,7 @@ exports.submitAttendance = async (req, res) => {
   const { date, male, female, total, w_female, w_male } = req.body;
 
   try {
-    const record = new Attendance({
+    const record = new L_Attendance({
       date: date,
       male: male,
       female: female,
@@ -33,7 +33,7 @@ exports.submitAttendance = async (req, res) => {
 // GET all attendance records
 exports.getAllAttendance = async (req, res) => {
   try {
-    const tasks = await Attendance.find();
+    const tasks = await L_Attendance.find();
     res.status(200).json(tasks);
   } catch (error) {
     console.error('Error retrieving tasks:', error);

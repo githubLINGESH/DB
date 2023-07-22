@@ -10,6 +10,6 @@
     shift: Number
     });
 
-    const Labour = mongoose.model('Labour', labourSchema);
+    const L_AddLabour = mongoose.model('L_AddLabour', labourSchema);
 
-    module.exports = Labour;
+    module.exports = L_AddLabour;
