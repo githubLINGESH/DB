@@ -1,23 +1,27 @@
-const Contract = require('../model/contractModel');
+const contracts = require('../model/contractModel');
 const path = require('path');
 
 exports.getpage = async(req,res) => {
-  res.sendFile(path.join(__dirname, '..', '..','contract.html'));
+  res.sendFile(path.join(__dirname, '..', '..','cont.html'));
 };
 
 exports.submitTask = async (req, res) => {
-  const { w_name, phone, w_type, start, end } = req.body;
+  const { w_name, phone, w_type, sal, shift, start, end } = req.body;
 
   try {
-    const record = new Contract({
+    console.log('Received data:', req.body);
+
+    const record = new contracts({
       w_name: w_name,
       phone: phone,
       w_type: w_type,
+      sal: sal,
+      shift: shift,
       start: start,
       end: end,
     });
 
-    const savedRecord = await record.save();
+    await record.save();
     console.log('Record inserted successfully.');
 
     res.status(200).send('Record inserted successfully.');
@@ -29,7 +33,7 @@ exports.submitTask = async (req, res) => {
 
 exports.getTasks = async (req, res) => {
   try {
-    const tasks = await Contract.find();
+    const tasks = await contracts.find();
     res.status(200).json(tasks);
   } catch (error) {
     console.error('Error retrieving tasks:', error);
