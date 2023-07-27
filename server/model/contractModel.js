@@ -29,6 +29,10 @@ const contractSchema = new mongoose.Schema({
     type: Date, // End Date should be a date
     required: true,
   },
+  pa: {
+    type: String,
+    default:0, // Default value is 0 (Absent)
+  }
 });
 
 const contracts = mongoose.model('contracts', contractSchema);

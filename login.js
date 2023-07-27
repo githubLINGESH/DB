@@ -12,7 +12,7 @@ const myMiddleware = (req, res, next) => {
 };
 router.use(myMiddleware);
 
-router.get('/', (req, res) => {
+router.get('/login', (req, res) => {
   res.send('Login page');
 });
 

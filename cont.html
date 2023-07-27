@@ -67,22 +67,22 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="prs"></td>
-                                <td class="abs"></td>
-                                <td class="tot"></td>
+                                <td class="prs" id="presentCount"></td>
+                                <td class="abs" id="absentCount"></td>
+                                <td class="tot" id="totalCount"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
                 <div class="workers">
-                    <form method="POST" action="http://localhost:3000/contract/submit">
+                    <form>
                         <label for="male">MALE: </label>
-                        <input type="text" name="male" required>
+                        <input id="male" type="text" name="male" required>
                         <label for="female">FEMALE: </label>
-                        <input type="text" name="female" reqluired>
+                        <input id="female" type="text" name="female" required>
                         <label for="contract">CONTRACT: </label>
-                        <input type="text" name="contract" required>
+                        <input id="contract" type="text" name="contract" required>
                     </form>
                     <div class="work_but"><button>Mark Attendance</button></div>
                 </div>
@@ -104,11 +104,12 @@
                             <td>${task.shift}</td>
                             <td id="dis">
                                 <div class="p_a">
-                                <button class="prs" id="present" style="margin-right: 10px; background-color: green;">Present</button>
-                                <button class="abs" id="absent" style="margin-left: 10px; background-color: red;">Absent</button>
-                            </div>
+                                    <button class="prs" id="present" value=1 style="margin-right: 10px; background-color: green;">Present</button>
+                                    <button class="abs" id="absent" value=0 style="margin-left: 10px; background-color: red;">Absent</button>
+                                </div>
                             </td>
-                        </tr>
+                            <td class="w_id" data-worker-id="${task._id}" style="display: none;">${task._id}</td>
+                            </tr>
                     </tbody>
                 </table>
             </div>
@@ -199,6 +200,52 @@
                         };
                 
                         fetchAndDisplayTasks();
+
+                        const mark = document.querySelector('.work_but');
+
+                        mark.addEventListener('click', function () {
+                            let male = parseInt(document.getElementById('male').value);
+                            let female = parseInt(document.getElementById('female').value);
+                            let contract = parseInt(document.getElementById('contract').value);
+
+                            if (isNaN(male)) {
+                                male = 0;
+                            }
+                            if (isNaN(female)) {
+                                female = 0;
+                            }
+                            if (isNaN(contract)) {
+                                contract = 0;
+                            }
+
+                            const ct_t = male + female + contract;
+                            const ct_p = male + female + contract;
+                            const tot = document.querySelector('.count table tbody tr .tot');
+                            tot.textContent = ct_t;
+                            const prs = document.querySelector('.count table tbody tr .prs');
+                            prs.textContent = ct_p;
+                            const abs = document.querySelector('.count table tbody tr .abs');
+                            abs.textContent = "0";
+
+                            document.querySelector('.workers form').reset();
+                        });
+
+                        const present = document.getElementById('present');
+                        const absent = document.getElementById('absent');
+
+                        present.addEventListener('click', function () {
+                            document.getElementById('present').style.display = 'none';
+                            document.getElementById('absent').style.display = 'none';
+                            const dis = document.getElementById('dis');
+                            dis.textContent = "Present";
+                        });
+
+                        absent.addEventListener('click', function () {
+                            document.getElementById('present').style.display = 'none';
+                            document.getElementById('absent').style.display = 'none';
+                            const dis = document.getElementById('dis');
+                            dis.textContent = "Absent";
+                        });
                         const form = document.getElementById('workerContractForm');
                         const successMessage = document.getElementById('successMessage');
                             form.addEventListener('submit', event => {
