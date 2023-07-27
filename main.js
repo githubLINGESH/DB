@@ -1,5 +1,5 @@
         const express = require('express');
-        const loginRouter = require('./login.js');
+        const loginRouter = require('./server/routes/loginRoute.js');
         const matRouter = require('./server/routes/materialRoutes.js');
         const contractRouter = require('./server/routes/contractRoutes.js');
         const attRouter = require('./server/routes/attendanceRoutes.js');
@@ -17,7 +17,7 @@
                 console.log('Connected to MongoDB');
                 // Start the server only after successful database connection
                 app.listen(port, () => {
-                console.log(`Server started on http://localhost:${port}`);
+                console.log(`Server started on http://localhost:${port}/login`);
                 });
             })
             .catch((error) => {
@@ -38,5 +38,6 @@
         app.use('/att', attRouter);
         app.use('/add-labour', addLabourRouter);
         app.use('/todo', taskSearchRouter);
+        app.use('/',)
 
 
