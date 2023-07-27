@@ -1,0 +1,765 @@
+    html {
+        font-size: 62.5%;
+    }
+    
+    * {
+        font-family: Sora, 'Source Sans Pro';
+        box-sizing: border-box;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button{
+        outline: none;
+    }
+    /*Attendance*/
+    .att label{
+        margin-left: 20px;
+    }
+    .att .dt_ct{
+        display: flex;
+        padding-left: 20px;
+        width: 265px;
+        justify-content: space-between;
+    }
+    .att .date-DU2 {
+        box-sizing: border-box;
+        padding: 1.4rem 0.84rem 1.3rem 0.84rem;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.25);
+        background-color: #ffffff;
+        border-radius: 1rem;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .ooui-next-ltr-LoY {
+        margin-right: 10px;
+        width: 0.624rem;
+        height: 1.08rem;
+        object-fit: contain;
+        vertical-align: top;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .item-13-HTt {
+        margin: 0.7rem 3.1rem 0.9rem 0rem;
+        height: calc(100% - 1.6rem);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .item-13-HTt .item-13-1en {
+        margin: 0rem 0rem 0.2rem 0.1rem;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.26;
+        color: #000000;
+        font-family: Sora, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .item-13-HTt .tue-8UW {
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.26;
+        color: #000000;
+        font-family: Sora, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .today-4d4 {
+        margin-right: 3.4rem;
+        box-sizing: border-box;
+        padding: 0.8rem 0.4rem 0.8rem 0.5rem;
+        width: 5.1rem;
+        height: 100%;
+        background-color: #000000;
+        border-radius: 1rem;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .today-4d4 .item-14-nJA {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .att .date-DU2 .today-4d4 .item-14-nJA .item-14-Laa {
+        margin: 0rem 0.5rem 0.2rem 0rem;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.26;
+        color: #ffffff;
+        font-family: Sora, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .today-4d4 .item-14-nJA .wed-TfC {
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.26;
+        color: #ffffff;
+        font-family: Sora, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .item-15-BLJ {
+        margin: 0.7rem 1.936rem 0.9rem 0rem;
+        height: calc(100% - 1.6rem);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .item-15-BLJ .item-15-hpS {
+        margin: 0rem 0rem 0.2rem 0.1rem;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.26;
+        color: #000000;
+        font-family: Sora, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .item-15-BLJ .thu-pu4 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.26;
+        color: #000000;
+        font-family: Sora, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .att .date-DU2 .ooui-next-ltr-Zre {
+        margin-left: -10px;
+        width: 0.624rem;
+        height: 1.08rem;
+        object-fit: contain;
+        vertical-align: top;
+        flex-shrink: 0;
+    }
+    .att .dt_ct button{
+        outline: none;
+        background-color: white;
+        border:0;
+    }
+    .att .mon-Lc6 {
+        margin: 2.1rem 0rem 0.7rem 0rem;  
+        margin-left: 10px;
+        box-sizing: border-box;
+        padding-bottom: 0.24rem;
+        height: calc(100% - 2.8rem);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+    }
+    .att .mon-Lc6 .vector-fPU {
+        margin: 0rem 0rem 0.9rem 0.1rem;
+        width: 2.4rem;
+        height: 2.4rem;
+        object-fit: contain;
+        vertical-align: top;
+        flex-shrink: 0;
+    }
+    .att .mon-Lc6 .jun-amL {
+        margin-bottom: 0.636rem;
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 1.26;
+        color: #000000;
+        font-family: Sora, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .att .mon-Lc6 .ooui-next-ltr-82A {
+        margin-left: 0.1rem;
+        width: 1.08rem;
+        height: 0.624rem;
+        object-fit: contain;
+        vertical-align: top;
+        flex-shrink: 0;
+    }
+    /*Third*/
+    .att .button .add{
+        flex: 1;
+        font-size: 14px;
+        background: darkblue;
+        border-radius: 2rem;
+        color: white;
+        width: 150px;
+        height: 40px;
+        align-items: center;
+        border: none;
+        justify-content: center;
+        float: right;
+        margin-top: 10px;
+    }
+    .att #today{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        padding: 20px;
+        background-color: darkblue;
+        color:white;
+        width: 120px;
+        height: 40px;
+        border-radius: 2rem;
+        font-size: 14px;
+        margin: 10px 30px 0 0;
+    }
+    .att .count{
+        margin-left: 107rem;
+        font-size: 14px;
+        border-radius: 2rem;
+    }
+    .att .count table {
+        border-style: none;
+        width: 100%;
+    }
+
+    .att .count table thead{
+        background-color: white
+    }
+    
+    .att .count th, td {
+        padding: 8px;
+        text-align: center;
+    }
+    
+    .att .count thead {
+        background-color: #f2f2f2;
+    }
+    
+    .att .count tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .att .container{
+        display: flex;
+        max-width: 100%;
+    }
+    .att .third{
+        font-family: Sora, 'Source Sans Pro';
+    }
+    .att .container h2{
+        display: flex;
+        flex: 1;
+        padding-top: 10px;
+        font-size: 3.6rem;
+        font-weight: 700;
+        color: #404040;
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-left: 0;
+    }
+    .att .workers{
+        margin: 0 0 0 25px ;
+        display: flex;
+        align-items: center; /* Aligns items vertically */
+        justify-content: space-between;
+        margin-top: 20px; /* Adds space between "Attendance" and buttons */
+    }
+    .att .workers form{
+        font-size: 14px;
+        font-weight: 300;
+    }
+    .att .workers input{
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .att .work_but button{
+        justify-content: center;
+        width: 150px;
+        font-size: 14px;
+        color:#f2f2f2;
+        background-color: darkblue;
+        height: 40px;
+        border-radius: 2rem;
+        margin-right: 35rem;
+    }
+    /*Four*/
+    .att .four{
+        margin: 50px 0 0 20rem;
+    }
+    .att .four table{
+        border-collapse: collapse;
+        border: 3px solid #ccc; 
+        border-radius: 10px;
+        font-size: 15px;
+        width: 85%;
+        text-transform: uppercase;
+        size: 50px;
+        text-align: center;
+    }
+    
+    .att .four thead th, .four td{
+        padding: 20px 20px 20px 50px ;
+        background-color: white;
+    }
+    .att .four td button{
+        border: 0;
+        width: 90px;
+        height: 30px;
+        font-size: 14px;
+        color: white;
+        border-radius: 2rem;
+        align-items: center;
+    }
+    .att .four thead{
+        border: 2px solid #ccc;
+    }
+    .att h2{
+        padding: 20px;
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: #404040;
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-left: 0;
+    }
+    .att input{
+        font-size: 14px;
+        margin-left: 20px;
+        width: 250px;
+        height: 40px;
+        flex-shrink: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+    }
+    /*Popup*/
+    .att .popup-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    
+    .att .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 80%; 
+        height: 60%;
+        max-width: 700px;
+        max-height: 1000px;
+        overflow-y: auto;
+        font-family: Sora, 'Source Sans Pro';
+    }
+    
+    .att .popup-header {
+        box-sizing: border-box;
+        padding: 1.7rem 2.2rem 1.8rem 1.24rem;
+        width: 100%;
+        height: 5.8rem;
+        display: flex;
+        align-items: center;
+        background-color: #293391;
+        border-radius: 1.2rem ;
+        flex-shrink: 0;
+    }
+    
+    .att .popup-header h2 {
+        margin: 0;
+        font-size: 24px;
+        color:white;
+    }
+    
+    .att .cancel {
+        align-items: center;
+        margin-left: 300px;
+        height: 30px;
+        border: none;
+        background-color: gray;
+        border-radius: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    .att .add_wr{
+        margin-left: 20px;
+        align-items: center;
+        height: 30px;
+        border: none;
+        background-color: gray;
+        border-radius: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    .att .form input{
+        margin-top: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    /*Pentry*/
+    .pent h2{
+        padding: 20px;
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: #404040;
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-left: 0;
+    }
+    .pent input{
+        font-size: 14px;
+        margin-left: 20px;
+        width: 250px;
+        height: 40px;
+        flex-shrink: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+    }
+    .pent .first{
+        margin-top: 0;
+        display: flex;
+    }
+    .pent .first button{
+        font-size: 14px;
+        border: 0;
+        color: white;
+        margin-left: 80px;
+        width:150px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 20px;
+        background: #242E82;
+        box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
+    }
+    .pent .down{
+        margin-left: 100rem;
+    }
+    .pent button i{
+        padding-right: 10px;
+    }
+    .pent .second{
+        margin: 50px 0 0 20rem;
+    }
+    .pent .second table{
+        border-collapse: collapse;
+        border: 3px solid #ccc; 
+        border-radius: 10px;
+        font-size: 15px;
+        width: 85%;
+        text-transform: uppercase;
+        size: 50px;
+    }
+    
+    .pent .second thead th,td{
+        padding: 20px 20px 20px 20px ;
+        text-align: center;
+        background-color: white;
+    }
+    .pent .second thead{
+        border: 2px solid #ccc;
+    }
+    /*Popup*/
+    .pent .popup-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    
+    .pent .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 80%; 
+        height: 60%;
+        max-width: 700px;
+        max-height: 1000px;
+        overflow-y: auto;
+        font-family: Sora, 'Source Sans Pro';
+    }
+    
+    .pent .popup-header {
+        box-sizing: border-box;
+        padding: 1.7rem 2.2rem 1.8rem 1.24rem;
+        width: 100%;
+        height: 5.8rem;
+        display: flex;
+        align-items: center;
+        background-color: #293391;
+        border-radius: 1.2rem ;
+        flex-shrink: 0;
+    }
+    
+    .pent .popup-header h2 {
+        margin: 0;
+        font-size: 24px;
+        color:white;
+    }
+    
+    .pent .cancel {
+        align-items: center;
+        margin-left: 300px;
+        height: 30px;
+        border: none;
+        background-color: gray;
+        border-radius: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    .pent .add_wr{
+        margin-left: 20px;
+        align-items: center;
+        height: 30px;
+        border: none;
+        background-color: gray;
+        border-radius: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    .pent .form input{
+        margin-top: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    
+    /*Porder*/
+    .pout h2{
+        padding: 20px;
+        font-weight: 700;
+        font-size: 2.4rem;
+        color: #404040;
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-left: 0;
+    }
+    .pout input{
+        font-size: 14px;
+        margin-left: 20px;
+        width: 250px;
+        height: 40px;
+        flex-shrink: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+    }
+    .pout .first{
+        margin-top: 0;
+        display: flex;
+    }
+    .pout .first button{
+        font-size: 14px;
+        border: 0;
+        color: white;
+        margin-left: 80px;
+        width:150px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 20px;
+        background: #242E82;
+        box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
+    }
+    .pout .down{
+        margin-left: 100rem;
+    }
+    .pout button i{
+        padding-right: 10px;
+    }
+    .pout .second{
+        margin: 50px 0 0 20rem;
+    }
+    .pout .second table{
+        border-collapse: collapse;
+        border: 3px solid #ccc; 
+        border-radius: 10px;
+        font-size: 15px;
+        width: 85%;
+        text-transform: uppercase;
+        size: 50px;
+    }
+    
+    .pout .second thead th,td{
+        padding: 20px 20px 20px 20px ;
+        text-align: center;
+        background-color: white;
+    }
+    .pout .second thead{
+        border: 2px solid #ccc;
+    }
+    /*Popup*/
+    .pout .popup-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    
+    .pout .popup-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 80%; 
+        height: 60%;
+        max-width: 700px;
+        max-height: 1000px;
+        overflow-y: auto;
+        font-family: Sora, 'Source Sans Pro';
+    }
+    
+    .pout .popup-header {
+        box-sizing: border-box;
+        padding: 1.7rem 2.2rem 1.8rem 1.24rem;
+        width: 100%;
+        height: 5.8rem;
+        display: flex;
+        align-items: center;
+        background-color: #293391;
+        border-radius: 1.2rem ;
+        flex-shrink: 0;
+    }
+    
+    .pout .popup-header h2 {
+        margin: 0;
+        font-size: 24px;
+        color:white;
+    }
+    
+    .pout .cancel {
+        align-items: center;
+        margin-left: 300px;
+        height: 30px;
+        border: none;
+        background-color: gray;
+        border-radius: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    .pout .add_wr{
+        margin-left: 20px;
+        align-items: center;
+        height: 30px;
+        border: none;
+        background-color: gray;
+        border-radius: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+    .pout .form input{
+        margin-top: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    
+    /*Master Node*/
+    .masnode h2{
+        padding: 30px 0 0 30px;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #404040;
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-left: 0;
+    }
+    .masnode .fist{
+        display: flex;
+        padding: 100px;
+    
+    }
+    .masnode .fist button{
+        text-transform: uppercase;
+        display: flex;
+        font-size: 14px;
+        padding: 15px;
+        align-items: center;
+        border-radius: 10px;
+        background: #242E82;
+        box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
+        margin: 30px;
+        color: white;
+        width: 300px;
+        height: 50px;
+        border: 0;
+        cursor: pointer;
+    }
+    .masnode .fist .cli{
+        margin-top: 120px;
+        margin-left:-690px
+    }
+    .masnode .fist .pro{
+        margin-top: 120px;
+    }
+    
+    /*Vendour Mangement*/
+    .venman  h2{
+        padding: 30px 0 0 30px;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #404040;
+        white-space: nowrap;
+        text-transform: uppercase;
+        margin-left: 0;
+    }
+    .venman  .fist{
+        display: flex;
+        padding: 100px;
+    
+    }
+    .venman  .fist button{
+        font-size: 14px;
+        text-transform: uppercase;
+        display: flex;
+        padding: 15px;
+        align-items: center;
+        border-radius: 10px;
+        background: #242E82;
+        box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
+        margin: 30px;
+        color: white;
+        width: 300px;
+        height: 50px;
+        border: 0;
+        cursor: pointer;
+    }
+    .venman  .fist .cli{
+        margin-top: 120px;
+        margin-left:-690px
+    }
+    .venman  .fist .pro{
+        margin-top: 120px;
+    }
+    
+    
+    
