@@ -1,5 +1,5 @@
 const L_Attendance = require('../model/attendanceModel');
-const path = require('path')
+const path = require('path');
 
 // GET home page
 exports.getAttendancePage = (req, res) => {

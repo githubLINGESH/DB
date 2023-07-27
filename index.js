@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { MongoClient } = require('mongodb');
-const PORT = process.env.PORT || 5502;
+const PORT = process.env.PORT || 3000;
 const dbName = 'Site_Activity';
 const collectionName = 'Material';
 const app = express();
@@ -10,13 +10,11 @@ app.use(express.json());
 const path = require('path');
 const router = express.Router();
 
-
-
 const uri = 'mongodb+srv://jayran:' + encodeURIComponent('O9UdszTUcb8j2KA7') + '@cluster0.v6wdfkq.mongodb.net/Site_Activity?retryWrites=true&w=majority';
 const client = new MongoClient(uri);
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('/', (req, res) => {
+app.get('/punda', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 

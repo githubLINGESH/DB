@@ -1,31 +1,5 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const router = express.Router();
-
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
-// Define your login routes and middleware here
-const myMiddleware = (req, res, next) => {
-  // Your middleware logic here
-  next();
-};
-router.use(myMiddleware);
-
-router.get('/', (req, res) => {
-  res.send('Login page');
-});
-
-
-// Define the login data schema
-const loginSchema = new mongoose.Schema({
-  email: String,
-  password: String,
-  auth: String
-});
-
-// Create a model based on the schema
-const LoginModel = mongoose.model('Login', loginSchema);
+const LoginModel = require('../model/loginModel');
+const path = require('path');
 
 // Validate email, password, and authentication code against the data in MongoDB
 const validateLogin = async (email, password, auth) => {
@@ -38,8 +12,12 @@ const validateLogin = async (email, password, auth) => {
   return await LoginModel.exists(query);
 };
 
+ exports.getpage = async (req, res) => {
+  res.sendFile(path.join(__dirname, '..', '..', 'login.html'));
+ };
+
 // Handle the form submission
-router.post('/', (req, res) => {
+ exports.login = (req, res) => {
   const { email, password, auth } = req.body;
 
   // Validate email, password, and authentication code
@@ -57,6 +35,4 @@ router.post('/', (req, res) => {
       console.error('Error validating login', error);
       res.status(500).send('Error validating login'); // Send an error response message
     });
-});
-
-module.exports = router; // Export the router instance
+};
