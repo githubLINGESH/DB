@@ -1,11 +1,12 @@
-<<<<<<< HEAD:login.js
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const router = express.Router();
+const path = require('path');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
+
 // Define your login routes and middleware here
 const myMiddleware = (req, res, next) => {
   // Your middleware logic here
@@ -13,10 +14,10 @@ const myMiddleware = (req, res, next) => {
 };
 router.use(myMiddleware);
 
-router.get('/login', (req, res) => {
-  res.send('Login page');
+router.get('/', (req, res) => {
+  // Construct the correct path to the login.html file using __dirname
+  res.sendFile(path.join(__dirname, 'login.html'));
 });
-
 
 // Define the login data schema
 const loginSchema = new mongoose.Schema({
@@ -27,10 +28,6 @@ const loginSchema = new mongoose.Schema({
 
 // Create a model based on the schema
 const LoginModel = mongoose.model('Login', loginSchema);
-=======
-const LoginModel = require('../model/loginModel');
-const path = require('path');
->>>>>>> ff23572616bfd9a97e797772917f3462de50eb3d:server/controller/loginController.js
 
 // Validate email, password, and authentication code against the data in MongoDB
 const validateLogin = async (email, password, auth) => {
@@ -43,12 +40,8 @@ const validateLogin = async (email, password, auth) => {
   return await LoginModel.exists(query);
 };
 
- exports.getpage = async (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'login.html'));
- };
-
-// Handle the form submission
- exports.login = (req, res) => {
+// Handle the form submission for /login
+router.post('/', (req, res) => {
   const { email, password, auth } = req.body;
 
   // Validate email, password, and authentication code
@@ -56,7 +49,7 @@ const validateLogin = async (email, password, auth) => {
     .then((isValid) => {
       if (isValid) {
         console.log('Login successful');
-        res.send('Login successful'); // Send a success response message
+        res.send('<script>document.getElementById("message").innerText = "Login successful";</script>');
       } else {
         console.log('Invalid email, password, or authentication code');
         res.status(401).send('Invalid email, password, or authentication code'); // Send an error response message
@@ -66,4 +59,6 @@ const validateLogin = async (email, password, auth) => {
       console.error('Error validating login', error);
       res.status(500).send('Error validating login'); // Send an error response message
     });
-};
+});
+
+module.exports = router;

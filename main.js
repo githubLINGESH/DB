@@ -1,5 +1,5 @@
         const express = require('express');
-        const loginRouter = require('./server/routes/loginRoute.js');
+        const loginRouter = require('./login.js');
         const matRouter = require('./server/routes/materialRoutes.js');
         const contractRouter = require('./server/routes/contractRoutes.js');
         const attRouter = require('./server/routes/attendanceRoutes.js');
@@ -38,6 +38,6 @@
         app.use('/att', attRouter);
         app.use('/add-labour', addLabourRouter);
         app.use('/todo', taskSearchRouter);
-        app.use('/',)
+
 
 

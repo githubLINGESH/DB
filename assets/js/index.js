@@ -58,15 +58,7 @@ const updateAttendanceCounts = () => {
     .catch(error => console.error('Error updating attendance:', error));
     };
 
-        // Add event listeners to the "Present" and "Absent" buttons
-        const attendanceCells = document.querySelectorAll('.attendance');
-        attendanceCells.forEach(cell => {
-            const presentButton = cell.querySelector('.prs');
-            const absentButton = cell.querySelector('.abs');
-    
-            presentButton.addEventListener('click', () => markAttendance(cell, 'Present'));
-            absentButton.addEventListener('click', () => markAttendance(cell, 'Absent'));
-        });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     /* Attendance */
@@ -187,12 +179,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "pordm.html";
     });
 
-    // Add event listener to the "Mark Attendance" button
-    const markButton = document.querySelector('.work_but');
-    markButton.addEventListener('click', () => {
-        // ... (existing code for marking attendance)
-    });
-
     // Fetch and display tasks
     const tasksTableBody = document.querySelector('#table tbody');
     const fetchAndDisplayTasks = () => {
@@ -213,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <button class="abs" style="margin-left: 10px; background-color: red;">Absent</button>
                             </div>
                         </td>
+                        <td class="w_id" data-worker-id="${task._id}" style="display: none;">${task._id}</td>
                     `;
                     tasksTableBody.appendChild(row);
                 });

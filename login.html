@@ -86,9 +86,9 @@
       <span class="slider"></span>
     </label>
   </div>
-  
+  <div id="message"></div>
   <div>
-    <form style="margin-left: 7.9%; margin-top: 3%;" action="/" method="POST">
+    <form style="margin-left: 7.9%; margin-top: 3%;" action="/login" method="POST">
       <input type="text" class="custom-textbox" id="email" name="email" placeholder="Username" required><br><br>
       <div style="position: relative;">
         <input type="password" class="pass-textbox" id="password" name="password" placeholder="Password" required>
@@ -143,6 +143,30 @@
     // toggle the eye slash icon
     this.classList.toggle('fa-eye-slash');
 });
+  </script>
+  <script>
+
+    // Add an event listener to the form submission
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+  
+      // Get the form data
+      const formData = new FormData(event.target);
+  
+      // Make an AJAX request to submit the form data
+      fetch("/login", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          // Display the response message on the page
+          document.getElementById("responseMessage").innerText = data;
+        })
+        .catch((error) => {
+          console.error("Error submitting login form", error);
+        });
+    });
   </script>
 </body>
 </html>
