@@ -1,5 +1,9 @@
         const express = require('express');
         const loginRouter = require('./login.js');
+        const clientRouter = require('./server/routes/clientRoutes.js');
+        const prodfRouter = require('./server/routes/prodfRoutes.js');
+        const vendorRouter = require('./server/routes/vendorRoutes.js');
+        const labourRouter = require('./server/routes/labourRoutes.js');
         const matRouter = require('./server/routes/materialRoutes.js');
         const contractRouter = require('./server/routes/contractRoutes.js');
         const attRouter = require('./server/routes/attendanceRoutes.js');
@@ -35,6 +39,10 @@
 
         // Mount the routers on the corresponding paths
         app.use('/login', loginRouter);
+        app.use('/client',clientRouter);
+        app.use('/prodf', prodfRouter);
+        app.use('/vendor', vendorRouter);
+        app.use('labour', labourRouter);
         app.use('/mat', matRouter);
         app.use('/contract', contractRouter);
         app.use('/att', attRouter);

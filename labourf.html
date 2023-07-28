@@ -1,0 +1,207 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    
+        <link rel="stylesheet" href="todo.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="assets\css\index.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            .active{
+                color: white !important; 
+                background-color: rgba(0, 0, 0, 0.2); 
+                border-left: 3px solid #F2D200;
+            }
+            *{
+                font-family: Sora, 'Source Sans Pro';
+                text-transform: uppercase;
+            }
+            .lab h1{
+                line-height: 2.5rem;
+                text-transform: uppercase;
+                font-size: 2.5rem;
+                font-weight: bold;
+                color: #404040;
+            }
+            .lab form{
+                margin-left: 20px;
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+            .lab input{
+                margin-left: 20px;
+                width: 664px;
+                height: 45px;
+                flex-shrink: 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-bottom: 10px;
+                padding: 5px;
+                border-radius: 10px;
+                border: 2px solid #ccc;
+            }
+            .lab .btn-block{
+                font-size: 14px;
+                border: 0;
+                color: white;   
+                width:150px;
+                height: 40px;
+                border-radius: 20px;
+                background: #242E82;
+                box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
+            }
+            .lab .lab_up{
+                border: 0;
+                color: white;
+                margin-top: 20px;
+                margin-left: 320px;
+                width: 107px;
+                height: 40px;
+                flex-shrink: 0;
+                border-radius: 20px;
+                background: #242E82;
+                box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
+            }
+            .lab i{
+                padding-right: 10px;
+            }
+            .lab .line-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .lab .line {
+                width: 319px;
+                height: 0.4px;
+                background-color: #909090;
+                margin: 0 10px;
+            }
+            .lab .row{
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid" style="margin: 10px 20px;">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Construct Eaze" style="width: 280px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"  style="margin-left: 15%;">
+                
+                <li class="nav-item">
+                    <a class="nav-link active" href="masnode.html">Master</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="att.html">Labour Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="pord.html">Vendor Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="todo.html">Site Activity</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="labrep.html">Report Generation</a>
+                </li>
+                </ul>
+                <form class="d-flex">
+                <button class="btn" type="submit"><span class="txt">Logout</span></button>
+                </form>
+            </div>
+            </div>
+        </nav>
+
+        <div class="row content" style="display: flex; width: 100%; height: 100%;" >
+            <div class="col-lg-2">
+            <div class="sidebar" style="height: 100%;">
+                <nav class="nav flex-column" style="padding-top: 100px; ">
+                    <a class="nav-link space " href="cli_f.html">client form</a>
+                    <a class="nav-link space" href="prod_f.html">product form</a>
+                    <a class="nav-link space active" href="#">labour form</a>
+                    <a class="nav-link space" href="ven_f.html">vendour form</a>
+                </nav>
+            </div>
+            </div>
+            <div class="col-lg-10">
+        
+
+                <div class="lab">
+        
+                    <div class="container-fluid">
+                        <div class="row">
+                            <h1>labour details</h1>
+                        </div>
+            
+            
+                        <div class="row">
+                            
+                            <form id="form_c">
+                                <input type="text" name="name" id="name" placeholder="Name" required><br>
+                                <input type="text" name="phno" id="phno"  placeholder="Phone No" required><br>
+                                <input type="text" name="categ" id="categ"  placeholder="Category" required><br>
+                                <input type="text" name="wages" id="wages"  placeholder="Wages per Shift" required><br>
+                            </form>
+                        </div>
+            
+            
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block">Clear</button></div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
+                            </div>
+                        </div>
+            
+            
+                        <div class="row">
+                            <div class="line-container">
+                                <hr class="line">
+                                <span>or</span>
+                                <hr class="line">
+                            </div>
+                        </div>
+            
+            
+                        <div class="row">
+                            <button class="lab_up">
+                                <i class="fas fa-upload"></i>Upload
+                            </button>
+                        </div>
+                    </div>
+                    
+            
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+        <script src="todo.js"></script>
+        
+    </body>
+    </html>
+
+
