@@ -114,7 +114,7 @@
                                         <td>${task.Name_of_Material}</td>
                                         <td>${task.Supplied_quantity}</td>
                                         <td>${task.Vendor_name}</td>
-                                        <td>${task.Date}</td>
+                                        <td>${task.date}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -150,7 +150,7 @@
                                 <input type="text" placeholder="Unit prize" name="Unit_prize" required>
                             </div>
                             <div>
-                                <input type="number" placeholder="Date" name="Date" required>
+                                <input type="text" placeholder="Date" name="date" required>
                             </div>
                             <div>
                                 <input type="text" placeholder="Current stock" name="Current_stock" required>
@@ -191,7 +191,7 @@
                                     <td>${task.Name_of_Material}</td>
                                     <td>${task.Supplied_quantity}</td>
                                     <td>${task.Vendor_name}</td>
-                                    <td>${task.Date}</td>
+                                    <td>${task.date}</td>
                                 `;
                                 tasksTableBody.appendChild(row);
                             });
@@ -214,7 +214,7 @@
                         Required_quantity: formData.get('Required_quantity'),
                         Supplied_quantity: formData.get('Supplied_quantity'),
                         Unit_prize: formData.get('Unit_prize'),
-                        Date: formData.get('Date'),
+                        Date: formData.get('date'),
                         Current_stock: formData.get('Current_stock'),
                         Pay_expenses: formData.get('Pay_expenses') // Corrected property name
                     };

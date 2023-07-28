@@ -6,7 +6,7 @@
     Required_quantity: Number,
     Supplied_quantity: Number,
     Unit_prize: Number,
-    Date: Date,
+    Date: String,
     Current_stock: Number,
     Pay_expenses: Number,
     });

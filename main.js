@@ -5,7 +5,9 @@
         const attRouter = require('./server/routes/attendanceRoutes.js');
         const addLabourRouter = require('./server/routes/addLabourRoutes.js');
         const taskSearchRouter = require('./server/routes/todoRoutes.js');
-        const productRouter = require('./server/routes/prodRoute.js')
+        const productRouter = require('./server/routes/prodRoute.js');
+        const matoutRouter = require('./server/routes/materialoutRoutes.js');
+
         const mongoose = require('mongoose')
         const bodyParser = require('body-parser');
         const app = express();
@@ -39,6 +41,7 @@
         app.use('/add-labour', addLabourRouter);
         app.use('/todo', taskSearchRouter);
         app.use('/prod', productRouter);
+        app.use('/mato', matoutRouter);
 
 
 

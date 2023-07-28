@@ -99,7 +99,7 @@ function openFormout() {
         
                     <div class="table-container">
                         <form>
-                            <table>
+                            <table id="tableoo">
                                 <thead>
                                     <tr>
                                         <th>Material</th>
@@ -110,29 +110,10 @@ function openFormout() {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Material 1</td>
-                                        <td>10</td>
-                                        <td>John Doe</td>
-                                        <td>2023-06-21</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Material 2</td>
-                                        <td>5</td>
-                                        <td>Jane Smith</td>
-                                        <td>2023-06-22</td>
-                                    </tr>
-        
-                                    <tr>
-                                        <td>Material 3</td>
-                                        <td>5</td>
-                                        <td>Jane Smith</td>
-                                        <td>2023-06-22</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Material 4</td>
-                                        <td>5</td>
-                                        <td>Jane Smith</td>
-                                        <td>2023-06-22</td>
+                                      <td>${Material.Name_of_Material}</td>
+                                      <td>${Material.Supplied_quantity}</td>
+                                      <td>${Material.Vendor_name}</td>
+                                      <td>${Material.date}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -142,26 +123,25 @@ function openFormout() {
         
                     <div class="form-popup" id="myFormout">
         
-                        <form class="form-container">
+                        <form class="form-container" action="http://localhost:3000/mato/material-outward" method="POST">
                             <div class="navbar">
                                 <h2>Material Used</h2>
                                 <button type="button" class="cancel-button" onclick="closeFormout()">Cancel</button>
                               </div>
                             <div class="material">
                                 <h3>MATERIALS USED DETAILS</h3>
-                                                            
                             </div>
                             <div class="name">
                                 
-                            <input type="text" placeholder="Vendor Name" required>
+                            <input type="text" placeholder="Vendor Name" name="Vendor_name" required>
                             </div>
                             <div>
-                                <input type="text" placeholder="Nams of the Material" required>
+                                <input type="text" placeholder="Name of the Material" name="Name_of_Material" required>
                             </div>
                             <div>
-                                <input type="text" placeholder="Used Quamtity" required>
+                                <input type="text" placeholder="Used Quantity" name="Used_quantity" required>
                             </div>
-                           
+
                             <button type="button" class="cancel-button" onclick="closeFormout()">Cancel</button>
         
                             <button type="submit" class="add1-button">&nbsp;&nbsp;Add&nbsp;&nbsp;</button>
@@ -177,7 +157,36 @@ function openFormout() {
 
 
         </div>
-        
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+              const tasksTableBody = document.querySelector('#tableoo tbody');
+      
+          // Function to fetch and display tasks
+          const fetchAndDisplayTasks = () => {
+              fetch('http://localhost:3000/mato/getmato')
+                  .then(response => response.json())
+                  .then(Materials => {
+                      tasksTableBody.innerHTML = ''; // Clear existing table rows
+      
+                      Materials.forEach(Material => {
+                          const row = document.createElement('tr');
+                          row.innerHTML = `
+                              <td>${Material.Name_of_Material}</td>
+                              <td>${Material.Supplied_quantity}</td>
+                              <td>${Material.Vendor_name}</td>
+                              <td>${Material.date}</td>
+                          `;
+                          tasksTableBody.appendChild(row);
+                      });
+                  })
+                  .catch(error => console.error('Error retrieving tasks:', error));
+          };
+      
+          // Fetch tasks when the page loads
+          fetchAndDisplayTasks();
+      
+        });
+      </script>
 </body>
 </html>
 

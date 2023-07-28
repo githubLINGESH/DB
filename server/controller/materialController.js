@@ -24,7 +24,7 @@
         Required_quantity: parseInt(Required_quantity),
         Supplied_quantity: parseInt(Supplied_quantity),
         Unit_prize: parseInt(Unit_prize),
-        date: new Date(date), // Use the renamed variable here
+        Date: date, // Use the renamed variable here
         Current_stock: parseInt(Current_stock),
         Pay_expenses: parseInt(Pay_expenses),
         });
