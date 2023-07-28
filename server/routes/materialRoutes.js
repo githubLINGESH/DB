@@ -5,5 +5,6 @@ const materialController = require('../controller/materialController');
 router.get('/', materialController.getMaterialPage);
 router.get('/get', materialController.getTasks);
 router.post('/submit', materialController.submitMaterial);
+router.post('/search-mat', materialController.searchMaterial);
 
 module.exports = router;

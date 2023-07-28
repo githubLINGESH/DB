@@ -1,8 +1,8 @@
     const path = require('path');
-    const S_Material = require('../model/materialModel');
+    const s_materials = require('../model/materialModel');
 
     exports.getMaterialPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'mat.html'));
+    res.sendFile(path.join(__dirname, '..', '..', 'matin.html'));
     };
 
     exports.submitMaterial = async (req, res) => {
@@ -18,7 +18,7 @@
     } = req.body;
 
     try {
-        const record = new S_Material({
+        const record = new s_materials({
         Vendor_name: Vendor_name,
         Name_of_Material: Name_of_Material,
         Required_quantity: parseInt(Required_quantity),
@@ -41,10 +41,23 @@
 
     exports.getTasks = async (req, res) => {
     try {
-        const tasks = await S_Material.find();
+        const tasks = await s_materials.find();
         res.status(200).json(tasks);
     } catch (error) {
         console.error('Error retrieving tasks:', error);
         res.status(500).send('Error retrieving tasks.');
     }
     };
+
+    exports.searchMaterial = async (req, res) => {
+        const { Name_of_Material } = req.body;
+    
+        try {
+            const tasks = await s_materials.find({ Name_of_Material: Name_of_Material });
+    
+            res.status(200).json(tasks);
+        } catch (error) {
+            console.error('Error searching tasks:', error);
+            res.status(500).send('Error searching tasks.');
+        }
+        };

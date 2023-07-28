@@ -5,9 +5,9 @@
         const attRouter = require('./server/routes/attendanceRoutes.js');
         const addLabourRouter = require('./server/routes/addLabourRoutes.js');
         const taskSearchRouter = require('./server/routes/todoRoutes.js');
+        const productRouter = require('./server/routes/prodRoute.js')
         const mongoose = require('mongoose')
         const bodyParser = require('body-parser');
-
         const app = express();
         const port = process.env.PORT || 3000;
 
@@ -38,6 +38,7 @@
         app.use('/att', attRouter);
         app.use('/add-labour', addLabourRouter);
         app.use('/todo', taskSearchRouter);
+        app.use('/prod', productRouter);
 
 
 
