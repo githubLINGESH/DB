@@ -42,7 +42,7 @@
         app.use('/client',clientRouter);
         app.use('/prodf', prodfRouter);
         app.use('/vendor', vendorRouter);
-        app.use('labour', labourRouter);
+        app.use('/labour', labourRouter);
         app.use('/mat', matRouter);
         app.use('/contract', contractRouter);
         app.use('/att', attRouter);

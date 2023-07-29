@@ -15,12 +15,14 @@ const {
 } = req.body;
 
 try {
+    const prize = parseInt(Required_quantity) * parseInt(Unit_prize);
     const record = new e_products({
     Vendor_name: Vendor_name,
     Name_of_Material: Name_of_Material,
     Required_quantity: parseInt(Required_quantity),
     Supplied_quantity: parseInt(Supplied_quantity),
-    Unit_prize: parseInt(Unit_prize)
+    Unit_prize: parseInt(Unit_prize),
+    prize:prize
     });
 
 

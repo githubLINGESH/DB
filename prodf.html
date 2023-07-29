@@ -158,21 +158,25 @@
     
                 <div class="row">
                     
-                    <form id="form_c">
-                        <input type="text" name="code" id="code" placeholder="Item Code" required><br>
-                        <input type="text" name="name" id="name"  placeholder="Item Name" required><br>
-                        <input type="text" name="categ" id="categ"  placeholder="Category" required><br>
-                        <input type="text" name="des" id="des"  placeholder="Description" required><br>
+                    <form id="form_c" action="http://localhost:3000/prodf/submitprodf" method="POST">
+                        <input type="text" name="Item_code" id="code" placeholder="Item Code" required><br>
+                        <input type="text" name="Item_name" id="name"  placeholder="Item Name" required><br>
+                        <input type="text" name="category" id="categ"  placeholder="Category" required><br>
+                        <input type="text" name="description" id="des"  placeholder="Description" required><br>
                         <input type="text" name="unit" id="unit"  placeholder="Unit" required><br>
                         <input type="text" name="price" id="price"  placeholder="Price" required><br>
-                    </form>   
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
+                    </div>
+                </div>
+                    </form>
                 </div>
     
     
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block">Clear</button></div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
                     </div>
                 </div>
     
@@ -187,9 +191,10 @@
     
     
                 <div class="row">
-                    <button class="prod_up">
-                        <i class="fas fa-upload"></i>Upload
-                    </button>
+                    <form action="http://localhost:3000/prodf/uploads" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="file" required>
+                        <button class="prod_up" type="submit">Upload</button>
+                    </form>
                 </div>
             </div>
             

@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sora%3A300%2C400%2C600%2C700"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src ="assests\index.js"></script>
+    <script src =".assets\js\index.js"></script>
     <style>
         .main{
             font-family: Sora, 'Source Sans Pro';
@@ -109,21 +109,22 @@
 <body>
     <div class="cli_main">
         <h1>Client Details</h1>
-        <form id="form_c" >
+        <form id="form_c" action="http://localhost:3000/client/sub" method="POST">
             <input type="text" name="name" id="name" placeholder="Name" required><br>
-            <input type="text" name="phno" id="phno"  placeholder="Phone No" required><br>
-            <input type="text" name="adres" id="adres"  placeholder="Address" required><br>
+            <input type="text" name="phone" id="phno"  placeholder="Phone No" required><br>
+            <input type="text" name="address" id="adres"  placeholder="Address" required><br>
+            <button class="cli_s">Save</button>
+            <button class="cli_c">Clear</button>
         </form>
-        <button class="cli_c">Clear</button>
-        <button class="cli_s">Save</button>
         <div class="line-container">
             <hr class="line">
             <span>or</span>
             <hr class="line">
         </div>
-        <button class="cli_up">
-            <i class="fas fa-upload"></i>Upload
-        </button>
+            <form action="http://localhost:3000/client/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <button class="cli_up" type="submit">Upload</button>
+            </form>
     </div>
 </body>
 </html>

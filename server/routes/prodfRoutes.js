@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getprodf,submitprod } = require('../controller/prodController');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+const { submitprod, getpage ,handleFileUploads} = require('../controller/prodfController');
 
-router.get('/',getprodf);
+router.get('/',getpage);
 router.post('/submitprodf', submitprod);
+router.post('/uploads', upload.single('file'),handleFileUploads);
 
 module.exports = router;

@@ -2,11 +2,11 @@
 
     const prodSchema = new mongoose.Schema({
         Item_code: {
-            type: String,
+            type: Number,
             required: true,
         },
         Item_name: {
-            type: Number,
+            type: String,
             required: true,
         },
         category: {
@@ -14,7 +14,7 @@
             required: true,
         },
         description: {
-            type: Number,
+            type: String,
             required: true,
         },
         unit: {

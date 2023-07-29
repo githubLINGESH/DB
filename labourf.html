@@ -155,21 +155,24 @@
             
                         <div class="row">
                             
-                            <form id="form_c">
+                            <form id="form_c" action="http://localhost:3000/labour/submitlab" method="POST">
                                 <input type="text" name="name" id="name" placeholder="Name" required><br>
-                                <input type="text" name="phno" id="phno"  placeholder="Phone No" required><br>
-                                <input type="text" name="categ" id="categ"  placeholder="Category" required><br>
-                                <input type="text" name="wages" id="wages"  placeholder="Wages per Shift" required><br>
+                                <input type="text" name="phone" id="phno"  placeholder="Phone No" required><br>
+                                <input type="text" name="Category" id="categ"  placeholder="Category" required><br>
+                                <input type="text" name="wages_per_shift" id="wages"  placeholder="Wages per Shift" required><br>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
+                                    </div>
+                                </div>
                             </form>
-                        </div>
-            
-            
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block">Clear</button></div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
+                                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block">Clear</button></div>
+                                </div>
                             </div>
                         </div>
+     
             
             
                         <div class="row">
@@ -182,9 +185,10 @@
             
             
                         <div class="row">
-                            <button class="lab_up">
-                                <i class="fas fa-upload"></i>Upload
-                            </button>
+                            <form action="http://localhost:3000/labour/uploadlab" method="POST" enctype="multipart/form-data">
+                                <input type="file" name="file" required>
+                                <button class="lab_up" type="submit">Upload</button>
+                            </form>
                         </div>
                     </div>
                     

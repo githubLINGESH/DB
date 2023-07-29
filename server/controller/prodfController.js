@@ -5,7 +5,7 @@
     res.sendFile(path.join(__dirname, '..', '..','prodf.html'));
     };
 
-    exports.submitTask = async (req, res) => {
+    exports.submitprod = async (req, res) => {
     const { Item_code ,Item_name , category , description, unit , price} = req.body;
 
     try {
@@ -27,3 +27,44 @@
         res.status(500).send('Error inserting record.');
     }
     };
+        const fs = require('fs');
+        const csv = require('csv-parser');
+        
+        exports.handleFileUploads = (req, res) => {
+        const file = req.file;
+        
+        if (!file) {
+            return res.status(400).send('No file uploaded');
+        }
+        
+        const results = [];
+        
+        // Parse CSV file
+        fs.createReadStream(file.path)
+            .pipe(csv())
+            .on('data', (data) => results.push(data))
+            .on('end', () => {
+            // Remove the temporary file
+            fs.unlinkSync(file.path);
+        
+            // Map data to MongoDB worker documents
+            const workers = results.map((result) => ({
+                Item_code: parseInt(result.Item_code),
+                Item_name: result.Item_name,
+                category: result.category,
+                description : result.description,
+                unit: parseInt(result.unit),
+                prize: parseInt(result.prize)
+            }));
+        
+            // Save worker documents to MongoDB
+            e_prod.insertMany(workers)
+                .then(() => {
+                res.send('Data imported successfully');
+                })
+                .catch((error) => {
+                res.status(500).send('Error importing data');
+                });
+            });
+        };
+
