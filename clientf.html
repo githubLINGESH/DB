@@ -1,15 +1,14 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
-    
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="todo.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="assets\css\index.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/pent.css"> 
         <title>Document</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,20 +29,20 @@
                 font-family: Sora, 'Source Sans Pro';
                 text-transform: uppercase;
             }
-            .ven h1{
+            .cli h1{
                 line-height: 2.5rem;
                 text-transform: uppercase;
                 font-size: 2.5rem;
                 font-weight: bold;
                 color: #404040;
             }
-            .ven form{
+            .cli form{
                 margin-left: 20px;
                 font-size: 14px;
                 font-weight: 500;
                 text-transform: uppercase;
             }
-            .ven input{
+            .cli input{
                 margin-left: 20px;
                 width: 664px;
                 height: 45px;
@@ -54,17 +53,17 @@
                 border-radius: 10px;
                 border: 2px solid #ccc;
             }
-            .ven .btn-block{
+            .cli .btn-block{
                 font-size: 14px;
                 border: 0;
-                color: white;
+                color: white;   
                 width:150px;
                 height: 40px;
                 border-radius: 20px;
                 background: #242E82;
                 box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
             }
-            .ven .ven_up{
+            .cli .cli_up{
                 border: 0;
                 color: white;
                 margin-top: 20px;
@@ -76,22 +75,22 @@
                 background: #242E82;
                 box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
             }
-            .ven i{
+            .cli i{
                 padding-right: 10px;
             }
-            .ven .line-container {
+            .cli .line-container {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
             
-            .ven .line {
+            .cli .line {
                 width: 319px;
                 height: 0.4px;
                 background-color: #909090;
                 margin: 0 10px;
             }
-            .ven .row{
+            .cli .row{
                 margin-bottom: 30px;
             }
         </style>
@@ -115,10 +114,10 @@
                     <a class="nav-link" href="cont.html">Labour Management</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="prod.html">Vendor Management</a>
+                    <a class="nav-link" aria-current="page" href="pord.html">Vendor Management</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="matinf.html">Site Activity</a>
+                    <a class="nav-link " href="matinf.html">Site Activity</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="labrep.html">Report Generation</a>
@@ -135,38 +134,29 @@
             <div class="col-lg-2">
             <div class="sidebar" style="height: 100%;">
                 <nav class="nav flex-column" style="padding-top: 100px; ">
-                    <a class="nav-link space" href="clientf.html">client form</a>
+                    <a class="nav-link space active" href="#">client form</a>
                     <a class="nav-link space" href="prodf.html">product form</a>
                     <a class="nav-link space" href="labourf.html">labour form</a>
-                    <a class="nav-link space active" href="#">vendour form</a>
+                    <a class="nav-link space" href="vendorf.html">vendor form</a>
                 </nav>
             </div>
             </div>
             <div class="col-lg-10">
         
-
-
-                <div class="ven">
+                <div class="cli">
         
                     <div class="container-fluid">
                         <div class="row">
-                            <h1>vendour details</h1>
+                            <h1>client details</h1>
                         </div>
             
             
-                        <div class="row">
+                        <div class="row" >
                             
-                            <form id="form_c" action="http://localhost:3000/vendor/submitvend" method="POST">
+                            <form id="form_c" action="http://localhost:3000/client/upload" method="POST">
                                 <input type="text" name="name" id="name" placeholder="Name" required><br>
-                                <input type="text" name="firm_name" id="f_name" placeholder="Firm Name" required><br>
-                                <input type="text" name="address" id="adres"  placeholder="Address" required><br>
-                                <input type="text" name="Gst" id="gst"  placeholder="GSTIN" required><br>
-                                <input type="text" name="phone" id="phno"  placeholder="Phone No" required><br>
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
-                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
-                                    </div>
-                                </div>
+                                <input type="text" name="phone" id="phone"  placeholder="Phone No" required><br>
+                                <input type="text" name="address" id="address"  placeholder="Address" required><br>
                             </form>
                         </div>
             
@@ -174,7 +164,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block">Clear</button></div>
-
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
                             </div>
                         </div>
             
@@ -189,15 +179,19 @@
             
             
                         <div class="row">
-                            <form action="http://localhost:3000/vendor/uploadvendor" method="POST" enctype="multipart/form-data">
+                            <form action="http://localhost:3000/client/upload" method="POST" enctype="multipart/form-data">
                                 <input type="file" name="file" required>
-                                <button class="ven_up" type="submit">Upload</button>
+                                <button class="cli_up" type="submit">Upload</button>
                             </form>
                         </div>
                     </div>
                     
-            
+                    
+                    
+                    
                 </div>
+
+
 
 
 

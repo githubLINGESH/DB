@@ -49,15 +49,15 @@ router.post('/', (req, res) => {
     .then((isValid) => {
       if (isValid) {
         console.log('Login successful');
-        res.send('<script>document.getElementById("message").innerText = "Login successful";</script>');
+        res.sendFile(path.join(__dirname, 'home.html')); // Send the user to home.html if login is successful
       } else {
         console.log('Invalid email, password, or authentication code');
-        res.status(401).send('Invalid email, password, or authentication code'); // Send an error response message
+        res.status(401).send('<script>document.getElementById("message").innerText = "Invalid email, password, or authentication code";</script>'); // Send an error response message
       }
     })
     .catch((error) => {
       console.error('Error validating login', error);
-      res.status(500).send('Error validating login'); // Send an error response message
+      res.status(500).send('<script>document.getElementById("message").innerText = "Error validating login";</script>'); // Send an error response message
     });
 });
 

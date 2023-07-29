@@ -2,16 +2,16 @@
     const path = require('path');
 
     exports.getp = (req, res) => {
-        res.sendFile(path.join(__dirname, '..', '..', 'matout.html'));
+        res.sendFile(path.join(__dirname, '..', '..', 'matoutf.html'));
     };
 
 // Controller to handle material outward form submission
     exports.createMaterialOut = async (req, res) => {
     try {
-        const { Vendor_name, Used_quantity } = req.body;
+        const { Vendor_name,Name_of_Material, Used_quantity } = req.body;
 
         // Find the material inward entry by vendor name
-        const materialInward = await s_materials.findOne({ Vendor_name });
+        const materialInward = await s_materials.findOne({ Vendor_name ,Name_of_Material});
 
         if (!materialInward) {
             return res.status(404).json({ error: 'Material not found' });
@@ -25,9 +25,7 @@
 
         // Save the updated material inward entry
         await materialInward.save();
-
-        // Send a JSON response with the updated material inward entry
-        res.json({ materialInward, message: 'Material outward saved successfully' });
+        
     } catch (error) {
         console.error('Error saving material outward', error);
         res.status(500).json({ error: 'Error saving material outward' });

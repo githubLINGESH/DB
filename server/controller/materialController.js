@@ -2,7 +2,7 @@
     const s_materials = require('../model/materialModel');
 
     exports.getMaterialPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'matin.html'));
+    res.sendFile(path.join(__dirname, '..', '..', 'matinf.html'));
     };
 
     exports.submitMaterial = async (req, res) => {
@@ -24,7 +24,7 @@
         Required_quantity: parseInt(Required_quantity),
         Supplied_quantity: parseInt(Supplied_quantity),
         Unit_prize: parseInt(Unit_prize),
-        Date: date, // Use the renamed variable here
+        Date: date,
         Current_stock: parseInt(Current_stock),
         Pay_expenses: parseInt(Pay_expenses),
         });

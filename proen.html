@@ -15,10 +15,10 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="./assets/css/pent.css">
+      <link rel="stylesheet" href="assets/css/pent.css">
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
+      <title>Purchase Entry</title>
       <style>
           *{
     margin: 0;
@@ -80,7 +80,7 @@
   }
 
   form .btn1{
-    margin: 55% 0 0 0;
+    margin: 65% 0 0 0;
     height: 45px;
     width: 100%;
     border-radius: 12px;
@@ -114,7 +114,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid" style="margin: 10px 20px;">
             <a class="navbar-brand" href="#">
-              <img src="/assets/img/logo.png" alt="Construct Eaze" style="width: 280px;">
+              <img src="assets/img/logo.png" alt="Construct Eaze" style="width: 280px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -149,8 +149,8 @@
           <div class="col-lg-2">
             <div class="sidebar" style="height: 100%;">
               <nav class="nav flex-column" style="padding-top: 100px; ">
-                <a class="nav-link active space" style="color: white !important; background-color: rgba(0, 0, 0, 0.2); border-left: 3px solid #F2D200;" href="#"href="pord.html" >Purchase Order</a>
-                <a class="nav-link space" href="proen.html">Purchase Entry</a>
+                <a class="nav-link active space" href="prod.html">Purchase Order</a>
+                <a class="nav-link space" style="color: white !important; background-color: rgba(0, 0, 0, 0.2); border-left: 3px solid #F2D200;" href="#">Purchase Entry</a>
                 <a class="nav-link space" href="#">Account Statement</a>
               </nav>
             </div>
@@ -159,12 +159,12 @@
             <div class="content" style="height: 100%;margin-top: 5%;">
               <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> <h1>P U R C H A S E &nbsp;&nbsp;  O R D E R</h1></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> <h1>P U R C H A S E &nbsp;&nbsp;  E N T R Y</h1></div>
                 </div>
         
         
                 <div class="row">
-                    
+                  
                         <div  style="display: flex;">
                           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 form-group">
                             <div class="input-group">
@@ -179,26 +179,29 @@
                                   <div class="form-popup" id="myFormin">
 
                                     <input type="checkbox" id="show">
-                                    <label for="show" class="btn-block" style="text-align: center; padding-top: 8px;">Add Material</label>
+                                    <label for="show" class="btn-block" style="text-align: center; padding-top: 8px;">Edit</label>
                                     <div class="container">
                                         <label for="show" class="close-btn fas fa-times" title="close"></label>
                                         <div class="text" style="margin: 0 0 15% 0;">
-                                          Purchase Order
+                                          Purchase Entry
                                         </div>
-                                        <form id="formm" action="http://localhost:3000/prod/submitprod" method="POST">
+                                        <form id="formm" action="http://localhost:3000/proen/createproen" method="POST">
                                           <div class="data">
                                               <input type="text" name="Vendor_name" required placeholder="Vendor Name">
                                           </div>
                                           <div class="data">
                                             <div class="data">
-                                                <input type="text" name="Name_of_Material" required placeholder="Name of the Material">
-                                            </div>
-                                            <div class="data">
-                                                <input type="text" name="Required_quantity" required placeholder="Required Quantity">
+                                                <input type="text"name="Name_of_Material" required placeholder="Name of the Material">
                                             </div>
                                   
                                             <div class="data">
-                                                <input type="number"  name="Unit_prize" required placeholder="Unit Price">
+                                                <input type="number" name="Required_quantity"  required placeholder="Required Quantity">
+                                            </div>
+                                            <div class="data">
+                                                <input type="number" name="Supplied_quantity" required placeholder="Supplied Quantity">
+                                            </div>
+                                            <div class="data">
+                                                <input type="number" name="Unit_prize" required placeholder="Unit Price">
                                             </div>
                                           </div>
                                           <div class="btn1">
@@ -223,23 +226,25 @@
         
                 <div class="row">
                     <div class="table-responsive">
-                        <table class="table" id="table">
+                        <table class="table" id="tab">
                             <thead>
                                 <tr>
                                     <th>VENDOR</th>
                                     <th>MATERIAL</th>
                                     <th>REQUIRED</th>
+                                    <th>SUPPLIED</th>
                                     <th>UNIT PRICE</th>
                                     <th>TOTAL</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                  <td>${task.Vendor_name}</td>
-                                  <td>${task.Name_of_Material}</td>
-                                  <td>${task.Required_quantity}</td>
-                                  <td>${task.Unit_prize}</td>
-                                  <td>${task.prize}</td>
+                                  <td>${Material.Vendor_name}</td>
+                                  <td>${Material.Name_of_Material}</td>
+                                  <td>${Material.Required_quantity}</td>
+                                  <td>${Material.Supplied_quantity}</td>
+                                  <td>${Material.Unit_prize}</td>
+                                  <td>${Material.prize}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -252,71 +257,92 @@
 
 
         </div>
+
         <script>
           document.addEventListener('DOMContentLoaded', () => {
-              const tasksTableBody = document.querySelector('#table tbody');
-      
-          // Function to fetch and display tasks
-          const fetchAndDisplayTasks = () => {
-              fetch('http://localhost:3000/prod/getprod')
-                  .then(response => response.json())
-                  .then(tasks => {
-                      tasksTableBody.innerHTML = ''; // Clear existing table rows
-      
-                      tasks.forEach(task => {
-                          const row = document.createElement('tr');
-                          row.innerHTML = `
-                              <td>${task.Vendor_name}</td>
-                              <td>${task.Name_of_Material}</td>
-                              <td>${task.Required_quantity}</td>
-                              <td>${task.Unit_prize}</td>
-                              <td>${task.prize}</td>
-                          `;
-                          tasksTableBody.appendChild(row);
-                      });
-                  })
-                  .catch(error => console.error('Error retrieving tasks:', error));
-          };
-      
-          // Fetch tasks when the page loads
-          fetchAndDisplayTasks();
-
-          const form = document.getElementById('formm');
-          const responseMessage = document.getElementById('responseMessage');
-      
-          form.addEventListener('submit', async (event) => {
-          event.preventDefault(); // Prevent the default form submission behavior
-          const url = form.getAttribute('action');
-      
-              const formData = new FormData(form);
-              const taskData = {
+              const tasksTableBody = document.querySelector('#tab tbody');
+              const form = document.getElementById('formm');
+              const responseMessage = document.getElementById('responseMessage');
+  
+              // Function to fetch and display tasks
+              const fetchAndDisplayTasks = () => {
+                  fetch('http://localhost:3000/proen/getMaterials')
+                      .then(response => response.json())
+                      .then(Materials => {
+                          tasksTableBody.innerHTML = ''; // Clear existing table rows
+  
+                          Materials.forEach(Material => {
+                              const row = document.createElement('tr');
+                              row.innerHTML = `
+                                  <td>${Material.Vendor_name}</td>
+                                  <td>${Material.Name_of_Material}</td>
+                                  <td>${Material.Required_quantity}</td>
+                                  <td>${Material.Supplied_quantity}</td>
+                                  <td>${Material.Unit_prize}</td>
+                                  <td>${Material.prize}</td>
+                              `;
+                              tasksTableBody.appendChild(row);
+                          });
+                      })
+                      .catch(error => console.error('Error retrieving tasks:', error));
+              };
+  
+              // Fetch tasks when the page loads
+              fetchAndDisplayTasks();
+  
+              form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent the default form submission behavior
+        
+                // Get the form data using FormData
+                const formData = new FormData(form);
+                const taskData = {
                   Vendor_name: formData.get('Vendor_name'),
                   Name_of_Material: formData.get('Name_of_Material'),
                   Required_quantity: formData.get('Required_quantity'),
                   Supplied_quantity: formData.get('Supplied_quantity'),
-                  Unit_prize: formData.get('Unit_prize')
-              };
-      
-              fetch('http://localhost:3000/prod/submitprod', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(taskData)
-              })
-              .then(response => {
+                  Unit_prize: formData.get('Unit_prize'),
+                };
+        
+                try {
+                  const url = form.getAttribute('action');
+        
+                  // Send the form data to the server using fetch
+                  const response = await fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(taskData),
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                  });
+        
+                  // Check if the response is successful
                   if (response.ok) {
-                      console.log('Record inserted successfully.');
-                      form.reset();
-                      fetchAndDisplayTasks(); // Update the display with the new task
+                    // Clear the form and show success message
+                    form.reset();
+                    responseMessage.textContent = 'Record inserted successfully.';
+                    responseMessage.style.color = 'green';
+                    setTimeout(() => {
+                      responseMessage.textContent = '';
+                      responseMessage.style.color = 'inherit';
+                    }, 3000); // Hide the message after 3 seconds
+        
+                    // Refresh the table to display the updated data
+                    fetchAndDisplayTasks();
                   } else {
-                      console.error('Error inserting record.');
+                    // Show error message if the response is not successful
+                    responseMessage.textContent = 'Error inserting record. Please try again.';
+                    responseMessage.style.color = 'red';
+                    setTimeout(() => {
+                      responseMessage.textContent = '';
+                      responseMessage.style.color = 'inherit';
+                    }, 3000); // Hide the message after 3 seconds
                   }
-              })
-              .catch(error => console.error('Error inserting record:', error));
+                } catch (error) {
+                  console.error('Error adding material:', error);
+                }
+              });
           });
-      });
-  </script>
+      </script>
         
   </body>
   </html>

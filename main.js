@@ -11,6 +11,7 @@
         const taskSearchRouter = require('./server/routes/todoRoutes.js');
         const productRouter = require('./server/routes/prodRoute.js');
         const matoutRouter = require('./server/routes/materialoutRoutes.js');
+        const proenRouter = require('./server/routes/proenRoutes.js');
 
         const mongoose = require('mongoose')
         const bodyParser = require('body-parser');
@@ -50,6 +51,7 @@
         app.use('/todo', taskSearchRouter);
         app.use('/prod', productRouter);
         app.use('/mato', matoutRouter);
+        app.use('/proen', proenRouter);
 
 
 

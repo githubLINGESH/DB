@@ -20,7 +20,7 @@ try {
     Vendor_name: Vendor_name,
     Name_of_Material: Name_of_Material,
     Required_quantity: parseInt(Required_quantity),
-    Supplied_quantity: parseInt(Supplied_quantity),
+    Supplied_quantity: 0,
     Unit_prize: parseInt(Unit_prize),
     prize:prize
     });
@@ -28,8 +28,8 @@ try {
 
     await record.save();
     console.log('Record inserted successfully.');
-
     res.status(200).send('Record inserted successfully.');
+
 } catch (error) {
     console.error('Error inserting record:', error);
     res.status(500).send('Error inserting record.');
