@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/pent.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--script src="assets/js/index.js"></!--script -->
+
+
+    <style>
+        *{
+            font-family: Sora, 'Source Sans Pro';
+            text-transform: uppercase;
+        }
+        .att .row{
+            margin-bottom: 30px;
+        }
+        .att h1{
+            font-weight: 700;
+            font-size: 3rem;
+            color: #404040;
+        }
+        .att h4{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .att .btn-block{
+            font-size: 14px;
+            border: 0;
+            color: white;   
+            width:150px;
+            height: 40px;
+            border-radius: 20px;
+            background: #242E82;
+            box-shadow: 0px 0px 3px 0.5px rgba(0, 0, 0, 0.25);
+        }
+        .att i{
+            padding-right: 5px;
+        }
+        .att label{
+            padding-right: 10px;
+        }
+        .att input{
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            width: 100px;
+            height: 30px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+        }
+        .att .table-responsive .table {
+            max-width: 70%; /* Adjust this value to decrease the width */
+            margin: 20px auto; /* Center the table horizontally */
+            border-collapse: collapse;
+            border: 3px solid #ccc; 
+            border-radius: 10px;
+            font-size: 15px;
+            width: 85%; 
+            size: 50px; 
+        }
+        .att thead th,td{
+            padding: 20px 20px 20px 20px !important;
+            text-align: center;
+            background-color: white;
+        }   
+        .att .table2{
+            font-size: 12px !important;
+            border-style: none !important;
+        }
+        .att .table2 th,.table2 td{
+            padding: 8px !important;
+            text-align: center !important;
+        }
+        @media (max-width: 767px) {
+        .att .form-group {
+                margin-bottom: 10px;
+            }
+            
+        }
+        .att .modal-content {
+            border-radius: 15px;
+            border-top-left-radius: 20px !important;
+            border-top-right-radius: 20px !important;
+        }
+        .att .modal-header{
+            background-color: #242E82;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .att .modal-header h1{
+            color: white !important;
+        }
+        .att .modal-header .close {
+            color: white !important;
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 1;
+        }
+        .att .modal-body input{
+            width: 300px !important;
+            margin-top: 10px !important;
+            padding: 5px !important;
+            border-radius: 5px !important;
+            border: 1px solid #ccc !important;
+        }
+        .att .date-DU2 {
+            box-sizing: border-box;
+            padding: 1.1rem 0.2rem 0.9rem 0.2rem;
+            width: 30rem;
+            height: 40%;
+            display: flex;
+            justify-content: center ;
+            box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.25);
+            background-color: #ffffff;
+            border-radius: 1rem;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .ooui-next-ltr-LoY {
+            margin-right: 10px;
+            width: 0.624rem;
+            height: 1.08rem;
+            object-fit: contain;
+            vertical-align: top;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .item-13-HTt {
+            margin: 0.7rem 3.1rem 0.9rem 0rem;
+            height: calc(100% - 1.6rem);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .item-13-HTt .item-13-1en {
+            margin: 0rem 0rem 0.2rem 0.3rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.26;
+            color: #000000;
+            font-family: Sora, 'Source Sans Pro';
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .item-13-HTt .tue-8UW {
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.26;
+            color: #000000;
+            font-family: Sora, 'Source Sans Pro';
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .today-4d4 {
+            margin-right: 3.4rem;
+            box-sizing: border-box;
+            padding: 0.8rem 0.4rem 0.8rem 0.5rem;
+            width: 5.5rem;
+            height: 7rem;
+            background-color: #000000;
+            border-radius: 1rem;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .today-4d4 .item-14-nJA {
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .att button{
+            outline: none;
+            background-color: white;
+            border:0;
+        }
+        .att .date-DU2 .today-4d4 .item-14-nJA .item-14-Laa {
+            margin: 0rem 0.5rem 0.2rem 0rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.26;
+            color: #ffffff;
+            font-family: Sora, 'Source Sans Pro';
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .today-4d4 .item-14-nJA .wed-TfC {
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.26;
+            color: #ffffff;
+            font-family: Sora, 'Source Sans Pro';
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .item-15-BLJ {
+            margin: 0.7rem 1.936rem 0.9rem 0rem;
+            height: calc(100% - 1.6rem);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .item-15-BLJ .item-15-hpS {
+            margin: 0rem 0rem 0.2rem 0.5rem;
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.26;
+            color: #000000;
+            font-family: Sora, 'Source Sans Pro';
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .item-15-BLJ .thu-pu4 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.26;
+            color: #000000;
+            font-family: Sora, 'Source Sans Pro';
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .att .date-DU2 .ooui-next-ltr-Zre {
+            margin-left: -10px;
+            width: 0.624rem;
+            height: 1.08rem;
+            object-fit: contain;
+            vertical-align: top;
+            flex-shrink: 0;
+        }
+        .att .mon-Lc6 {
+            margin: 2.1rem 0rem 0.7rem 0rem;
+            margin-left: 10px;
+            box-sizing: border-box;
+            padding-bottom: 0.24rem;
+            height: calc(100% - 2.8rem);
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+        .att .mon-Lc6 .vector-fPU {
+            margin: 0rem 0rem 0.9rem 0.1rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            object-fit: contain;
+            vertical-align: top;
+            flex-shrink: 0;
+        }
+        .att .mon-Lc6 .jun-amL {
+            margin-bottom: 0.636rem;
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.26;
+            color: #000000;
+            font-family: Sora, 'Source Sans Pro';
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .att .mon-Lc6 .ooui-next-ltr-82A {
+            margin-left: 0.1rem;
+            width: 1.08rem;
+            height: 0.624rem;
+            object-fit: contain;
+            vertical-align: top;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid" style="margin: 10px 20px;">
+        <a class="navbar-brand" href="#">
+            <img src="assets/img/logo.png" alt="Construct Eaze" style="width: 280px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"  style="margin-left: 15%;">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="masnode.html">Master</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Labour Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="prod.html">Vendor Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="todo.html">Site Activity</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="labrep.html">Report Generation</a>
+            </li>
+            </ul>
+            <form class="d-flex">
+            <button class="btn" type="submit"><span class="txt">Logout</span></button>
+            </form>
+        </div>
+        </div>
+    </nav>
+
+    <div class="row content" style="display: flex; width: 100%; height: 100%;" >
+        <div class="col-lg-2">
+        <div class="sidebar" style="height: 100%;">
+            <nav class="nav flex-column" style="padding-top: 100px; ">
+                <a class="nav-link space"  style="color: white !important; background-color: rgba(0, 0, 0, 0.2); border-left: 3px solid #F2D200;" href="#">Attendance</a>
+            </nav>
+        </div>
+        </div>
+        <div class="col-lg-10">
+        <div class="att">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12"> <h1>daily workers</h1></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="display: flex; justify-content: flex-end; ">
+                        <button type="button" class="btn-block" data-toggle="modal" data-target="#add_wr">
+                            <i class="fas fa-plus"></i>
+                            Add Worker
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="display: flex; align-items: center;"> 
+                        <div class="date-DU2">
+                            <button><i class="fas fa-chevron-left"></i></button>
+                            <div class="item-13-HTt">
+                            <p class="item-13-1en"></p>
+                            <p class="tue-8UW"></p>
+                            </div>
+                            <div class="today-4d4">
+                            <div class="item-14-nJA">
+                                <p class="item-14-Laa"></p>
+                                <p class="wed-TfC"></p>
+                            </div>
+                            </div>
+                            <div class="item-15-BLJ">
+                            <p class="item-15-hpS"></p>
+                            <p class="thu-pu4"></p>
+                            </div>
+                            <button><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="mon-Lc6">
+                            <button><i class="fas fa-calendar-alt"></i>
+                            <p class="jun-amL"></p>
+                            <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="display: flex; justify-content: flex-end; ">
+                        <div class="table-responsive">
+                            <table class="table2">
+                                <thead>
+                                    <tr>
+                                    <th>Present</th>
+                                    <th>Absent</th>
+                                    <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="prs"></td>
+                                        <td class="abs"></td>
+                                        <td class="tot"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <form id="attform" action="http://localhost:3000/contract/submit">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 form-group">
+                            <label for="male">MALE: </label>
+                            <input type="text" id="male" required>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 form-group">
+                            <label for="female">FEMALE: </label>
+                            <input type="text" id="female" required>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 form-group">
+                            <label for="contract">CONTRACT: </label>
+                            <input type="text" id="contract" required>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 form-group">
+                            <button type="submit" class="btn-block" id="wrkbtn">Mark Attendance</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        
+        
+        
+            <div class="four">
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>WorkerType</th>
+                            <th>Shift</th>
+                            <th>Present/Absent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${task.w_name}</td>
+                            <td>${task.w_Type}</td>
+                            <td>${task.shift}</td>
+                            <td id="dis">
+                            <div class="p_a">
+                                <button class="prs" id="present" value=1 style="margin-right: 10px; background-color: green;">Present</button>
+                                <button class="abs" id="absent" value=0 style="margin-left: 10px; background-color: red;">Absent</button>
+                            </div>
+                        </td>
+                        <td class="w_id" data-worker-id="${task._id}" style="display: none;">${task._id}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <div id="add_wr" class="modal fade" role="form">
+                <div class="modal-dialog">
+            
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                    <h1 class="modal-title" style="text-transform: uppercase;">add worker</h1>
+                    </div>
+                    <div class="modal-body">
+                        <h4 style="margin-top: 10px;">WORKER DETAILS</h4>
+                        <form id="workerContractForm" method="POST" action="http://localhost:3000/contract/submit">
+                            <input type="text" placeholder="Name of the Worker" name="w_name" required><br>
+                            <input type="number" placeholder="Phone Number" name="phone" required><br>
+                            <input type="text" placeholder="Worker Type" name="w_type" required><br>
+                            <input type="number" placeholder="Salary Per Shift (Rs.)" name="sal" required><br>
+                            <input type="number" placeholder="Hours Per Shift" name="shift" required><br>
+                        <h2 style="margin-top: 10px;">CONTRACT DETAILS</h2>
+                            <input type="date" placeholder="Start Date" name="start" required><br>
+                            <input type="date" placeholder="End Date" name="end" required><br>
+                            <div class="modal-footer">
+                            <button id="addButton" type="button" class="btn btn-default" data-dismiss="modal">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+    </div>
+    <script>
+        const workerForm = document.getElementById('workerForm');
+        const contractForm = document.getElementById('contractForm');
+        const addButton = document.getElementById('addButton');
+    
+        // Add click event listener to the Add button
+        addButton.addEventListener('click', function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+    
+            // Submit both forms programmatically
+            workerForm.submit();
+            contractForm.submit();
+        });
+    </script>
+    <script>
+
+        const form = document.getElementById('workerContractForm');
+                        const successMessage = document.getElementById('successMessage');
+                            form.addEventListener('submit', event => {
+                                event.preventDefault(); // Prevent the default form submission behavior
+                        
+                                const formData = new FormData(form);
+                                const taskData = {
+                                    w_name: formData.get('w_name'),
+                                    phone: formData.get('phone'),
+                                    w_type: formData.get('w_type'),
+                                    sal: formData.get('sal'),
+                                    shift: formData.get('shift'),
+                                    start: formData.get('start'),
+                                    end: formData.get('end')
+                                };
+                        
+                                fetch('http://localhost:3000/contract/submit', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(taskData)
+                                })
+                                .then(response => {
+                                    if (response.ok) {
+                                        console.log('Record inserted successfully.');
+                                        form.reset();
+                                        fetchAndDisplayTasks(); // Update the display with the new task
+                        
+                                        // Show the success message
+                                        successMessage.style.display = 'block';
+                        
+                                        // Hide the message after a few seconds
+                                        setTimeout(() => {
+                                            successMessage.style.display = 'none';
+                                        }, 3000); // Hide after 3 seconds (adjust as needed)
+                                    } else {
+                                        console.error('Error inserting record.');
+                                    }
+                                })
+                                .catch(error => console.error('Error inserting record:', error));
+                            });
+        // Your corrected JavaScript code here
+        // Move the updateAttendanceCounts function outside the DOMContentLoaded event listener
+        const updateAttendanceCounts = () => {
+            const attendanceCells = document.querySelectorAll('.attendance');
+            let presentCount = 0;
+            let absentCount = 0;
+
+            attendanceCells.forEach(cell => {
+                const status = cell.textContent;
+                if (status === 'Present') {
+                    presentCount++;
+                } else if (status === 'Absent') {
+                    absentCount++;
+                }
+            });
+
+            const presentCountElement = document.getElementById('presentCount');
+            const absentCountElement = document.getElementById('absentCount');
+            const totalCountElement = document.getElementById('totalCount');
+
+            const male = parseInt(document.getElementById('male').value) || 0;
+            const female = parseInt(document.getElementById('female').value) || 0;
+            const contract = parseInt(document.getElementById('contract').value) || 0;
+
+            const totalMaleFemaleContract = male + female + contract;
+            const totalAttendance = presentCount + absentCount;
+
+            presentCountElement.textContent = presentCount;
+            absentCountElement.textContent = absentCount;
+            totalCountElement.textContent = totalMaleFemaleContract + totalAttendance;
+        };
+
+        const markAttendance = (cell, status) => {
+            cell.textContent = status;
+            updateAttendanceCounts();
+
+            // Corrected attribute name in querySelector
+            const workerId = cell.parentElement.querySelector('.w_id').dataset.workerId;
+
+            // Log the workerId and status to check if they are correct
+            console.log('Worker ID:', workerId);
+            console.log('Status:', status);
+
+            // Send a POST request to update attendance status on the server
+            fetch('http://localhost:3000/contract/markAttendance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ workerId, status })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Attendance updated on the server.');
+                    } else {
+                        console.error('Error updating attendance on the server.');
+                    }
+                })
+                .catch(error => console.error('Error updating attendance:', error));
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            /* Attendance */
+            document.querySelector('.att .add').addEventListener('click', function () {
+                document.querySelector('.popup-container').style.display = 'block';
+            });
+
+            document.querySelector('.att .cancel').addEventListener('click', function () {
+                document.querySelector('.popup-container').style.display = 'none';
+            });
+
+            document.querySelector('.att .add_wr').addEventListener('click', function () {
+                document.querySelector('.popup-container').style.display = 'none';
+            });
+
+            // ... your existing event listeners ...
+
+            // Fetch and display tasks
+            const tasksTableBody = document.querySelector('#table tbody');
+            const fetchAndDisplayTasks = () => {
+                fetch('http://localhost:3000/contract/det')
+                    .then(response => response.json())
+                    .then(tasks => {
+                        tasksTableBody.innerHTML = ''; // Clear existing table rows
+
+                        tasks.forEach(task => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${task.w_name}</td>
+                                <td>${task.w_Type}</td>
+                                <td>${task.shift}</td>
+                                <td class="attendance">
+                                    <div class="p_a">
+                                        <button class="prs" style="margin-right: 10px; background-color: green;">Present</button>
+                                        <button class="abs" style="margin-left: 10px; background-color: red;">Absent</button>
+                                    </div>
+                                </td>
+                                <td class="w_id" data-worker-id="${task._id}" style="display: none;">${task._id}</td>
+                            `;
+                            tasksTableBody.appendChild(row);
+                        });
+
+                        // Add event listeners to the "Present" and "Absent" buttons
+                        const attendanceCells = document.querySelectorAll('.attendance');
+                        attendanceCells.forEach(cell => {
+                            const presentButton = cell.querySelector('.prs');
+                            const absentButton = cell.querySelector('.abs');
+
+                            presentButton.addEventListener('click', () => markAttendance(cell, 'Present'));
+                            absentButton.addEventListener('click', () => markAttendance(cell, 'Absent'));
+                        });
+
+                        // Update attendance counts
+                        updateAttendanceCounts();
+                    })
+                    .catch(error => console.error('Error retrieving tasks:', error));
+            };
+
+            // Initial fetch and display tasks
+            fetchAndDisplayTasks();
+        });
+    </script>
+</body>
+</html>

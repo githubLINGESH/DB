@@ -2,7 +2,7 @@ const contracts = require('../model/contractModel');
 const path = require('path');
 
 exports.getpage = async (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'cont.html'));
+  res.sendFile(path.join(__dirname, '..', '..', 'conts.html'));
 };
 
 exports.submitTask = async (req, res) => {
