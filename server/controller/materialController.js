@@ -12,7 +12,7 @@
         Required_quantity,
         Supplied_quantity,
         Unit_prize,
-        date, // Rename Date to date or any other meaningful name
+        Date_o, // Rename Date to date or any other meaningful name
         Current_stock,
         Pay_expenses,
     } = req.body;
@@ -24,7 +24,7 @@
         Required_quantity: parseInt(Required_quantity),
         Supplied_quantity: parseInt(Supplied_quantity),
         Unit_prize: parseInt(Unit_prize),
-        Date: date,
+        Date_o: Date_o,
         Current_stock: parseInt(Current_stock),
         Pay_expenses: parseInt(Pay_expenses),
         });

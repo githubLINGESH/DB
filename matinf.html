@@ -196,7 +196,7 @@
                                                 <input type="text" required placeholder="Required Quantity" name="Required_quantity"><br>
                                                 <input type="number" required placeholder="Supplied Quantity" name="Supplied_quantity"><br>
                                                 <input type="text" required placeholder="Unit" name="Unit_prize"><br>
-                                                <input type="text" required placeholder="Date" name="date"><br>
+                                                <input type="text" required placeholder="Date" name="Date_o"><br>
                                                 <input type="number" required placeholder="current stock" name="Current_stock"><br>
                                                 <input type="number" required placeholder="Pay expenses" name="Pay_expenses"><br>
                                                 <button type="submit" class="btn-block">Submit</button>
@@ -229,7 +229,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>${task.date}</td>
+                                    <td>${task.Date_o}</td>
                                     <td>${task.Vendor_name}</td>
                                     <td>${task.Name_of_Material}</td>
                                     <td>${task.Supplied_quantity}</td>
@@ -257,7 +257,7 @@
                         tasks.forEach(task => {
                             const row = document.createElement('tr');
                             row.innerHTML = `
-                                <td>${task.date}</td>
+                                <td>${task.Date_o}</td>
                                 <td>${task.Vendor_name}</td>
                                 <td>${task.Name_of_Material}</td>
                                 <td>${task.Supplied_quantity}</td>
@@ -286,7 +286,7 @@
                     Required_quantity: formData.get('Required_quantity'),
                     Supplied_quantity: formData.get('Supplied_quantity'),
                     Unit_prize: formData.get('Unit_prize'),
-                    Date: formData.get('date'),
+                    Date_o: formData.get('Date_o'),
                     Current_stock: formData.get('Current_stock'),
                     Pay_expenses: formData.get('Pay_expenses')
                 };
@@ -339,7 +339,7 @@
                                 startDateCell.textContent = task.Vendor_name;
         
                                 const endDateCell = document.createElement('td');
-                                endDateCell.textContent = task.Date;
+                                endDateCell.textContent = task.Date_o;
         
                                 row.appendChild(taskNameCell);
                                 row.appendChild(subtasksCell);

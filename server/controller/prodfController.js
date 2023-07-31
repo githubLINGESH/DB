@@ -48,17 +48,17 @@
             fs.unlinkSync(file.path);
         
             // Map data to MongoDB worker documents
-            const workers = results.map((result) => ({
+            const workerss = results.map((result) => ({
                 Item_code: parseInt(result.Item_code),
                 Item_name: result.Item_name,
                 category: result.category,
                 description : result.description,
                 unit: parseInt(result.unit),
-                prize: parseInt(result.prize)
+                price: parseInt(result.price)
             }));
         
             // Save worker documents to MongoDB
-            e_prod.insertMany(workers)
+            e_prod.insertMany(workerss)
                 .then(() => {
                 res.send('Data imported successfully');
                 })

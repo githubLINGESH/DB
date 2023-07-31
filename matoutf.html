@@ -227,12 +227,12 @@
                                     <th>DATE</th>
                                     <th>VENDOR</th>
                                     <th>MATERIAL</th>
-                                    <th>SUPPLIED</th>
+                                    <th>CURRENT STOCK</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>${Material.date}</td>
+                                    <td>${Material.Date_o}</td>
                                     <td>${Material.Vendor_name}</td>
                                     <td>${Material.Name_of_Material}</td>
                                     <td>${Material.Supplied_quantity}</td>
@@ -264,7 +264,7 @@
                         Materials.forEach(Material => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${Material.date}</td>
+                            <td>${Material.Date_o}</td>
                             <td>${Material.Vendor_name}</td>
                             <td>${Material.Name_of_Material}</td>
                             <td>${Material.Supplied_quantity}</td>
