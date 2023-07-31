@@ -114,8 +114,8 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid" style="margin: 10px 20px;">
-            <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="Construct Eaze" style="width: 280px;">
+            <a class="navbar-brand" href="home.html">
+                <img src="assets/img/logo.png" alt="Construct Eaze" style="width: 280px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -154,7 +154,7 @@
                 <a class="nav-link space" href="#">Check List</a>
                 <a class="nav-link space" style="color: white !important; background-color: rgba(0, 0, 0, 0.2); border-left: 3px solid #F2D200;" href="#" href="matin.html">Material Inward</a>
                 <a class="nav-link space" href="matoutf.html">Material Outward</a>
-                <a class="nav-link space" href="#">Work Done</a>
+                <a class="nav-link space" href="wrkdone.html">Work Done</a>
                 <a class="nav-link space" href="totexp.html">Total Expense</a>
                 </nav>
             </div>
@@ -183,22 +183,20 @@
                                     <div class="form-popup" id="myFormin">
 
                                     <input type="checkbox" id="show">
-                                    <label for="show" class="btn-block" style="text-align: center; padding-top: 8px;">Edit</label>
+                                    <label for="show" class="btn-block" style="text-align: center; padding-top: 8px;">Add material</label>
                                     <div class="container">
                                         <label for="show" class="close-btn fas fa-times" title="close"></label>
                                         <div class="text" style="margin: 0 0 15% 0;">
                                             Material Inward
                                         </div>
-                                        <form id="materialForm" action="http://localhost:3000/mat/submit" method="POST">
-                                            
+                                        <form id="FORM_CCCC" action="http://localhost:3000/mat/submit" method="POST">
+                                                <input type="text" required placeholder="Date" name="Date_i"><br>
                                                 <input type="text" required placeholder="Vendor Name" name="Vendor_name"><br>
                                                 <input type="text" required placeholder="Name of the Material" name="Name_of_Material"><br>
-                                                <input type="text" required placeholder="Required Quantity" name="Required_quantity"><br>
                                                 <input type="number" required placeholder="Supplied Quantity" name="Supplied_quantity"><br>
-                                                <input type="text" required placeholder="Unit" name="Unit_prize"><br>
-                                                <input type="text" required placeholder="Date" name="Date_o"><br>
-                                                <input type="number" required placeholder="current stock" name="Current_stock"><br>
-                                                <input type="number" required placeholder="Pay expenses" name="Pay_expenses"><br>
+                                                <!--input type="text" required placeholder="Unit" name="Unit_prize"><br--> 
+                                                <!--input type="number" required placeholder="current stock" name="Current_stock"><br-->
+                                                <!--input type="number" required placeholder="Pay expenses" name="Pay_expenses"><br-->
                                                 <button type="submit" class="btn-block">Submit</button>
                                             </div>
                                         </form>
@@ -218,21 +216,28 @@
         
                 <div class="row">
                     <div class="table-responsive">
-                        <table id="table">
+                        <table id="table" class="table">
                             <thead>
                                 <tr>
                                     <th>DATE</th>
                                     <th>VENDOR</th>
                                     <th>MATERIAL</th>
+                                    <th>REQUIRED</th>
                                     <th>SUPPLIED</th>
+                                    <th>UNIT PRICE</th>
+                                    <th>TOTAL PRICE</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>${task.Date_o}</td>
+                                    <td>${task.Date_I}</td>
                                     <td>${task.Vendor_name}</td>
                                     <td>${task.Name_of_Material}</td>
+                                    <td>${task.Required_quantity}</td>
                                     <td>${task.Supplied_quantity}</td>
+                                    <td>${task.Unit_prize}</td>
+                                    <td>${task.Price}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -257,10 +262,13 @@
                         tasks.forEach(task => {
                             const row = document.createElement('tr');
                             row.innerHTML = `
-                                <td>${task.Date_o}</td>
+                                <td>${task.Date_i}</td>
                                 <td>${task.Vendor_name}</td>
                                 <td>${task.Name_of_Material}</td>
+                                <td>${task.Required_quantity}</td>
                                 <td>${task.Supplied_quantity}</td>
+                                <td>${task.Unit_prize}</td>
+                                <td>${task.Price}</td>
                             `;
                             tasksTableBody.appendChild(row);
                         });
@@ -272,8 +280,7 @@
             fetchAndDisplayTasks();
         
             // Handle form submission
-            const form = document.getElementById('materialForm');
-            const responseMessage = document.getElementById('responseMessage');
+            const form = document.getElementById('FORM_CCCC');
         
             form.addEventListener('submit', async (event) => {
             event.preventDefault(); // Prevent the default form submission behavior
@@ -283,12 +290,9 @@
                 const taskData = {
                     Vendor_name: formData.get('Vendor_name'),
                     Name_of_Material: formData.get('Name_of_Material'),
-                    Required_quantity: formData.get('Required_quantity'),
                     Supplied_quantity: formData.get('Supplied_quantity'),
-                    Unit_prize: formData.get('Unit_prize'),
-                    Date_o: formData.get('Date_o'),
-                    Current_stock: formData.get('Current_stock'),
-                    Pay_expenses: formData.get('Pay_expenses')
+                    Date_i: formData.get('Date_i'),
+                    
                 };
         
                 fetch('http://localhost:3000/mat/submit', {

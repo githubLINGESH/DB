@@ -113,7 +113,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid" style="margin: 10px 20px;">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="home.html">
                 <img src="assets/img/logo.png" alt="Construct Eaze" style="width: 280px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -153,7 +153,7 @@
                 <a class="nav-link space" href="#">Check List</a>
                 <a class="nav-link space"  href="matinf.html">Material Inward</a>
                 <a class="nav-link space" style="color: white !important; background-color: rgba(0, 0, 0, 0.2); border-left: 3px solid #F2D200;" href="#">Material Outward</a>
-                <a class="nav-link space" href="#">Work Done</a>
+                <a class="nav-link space" href="wrkdone.html">Work Done</a>
                 <a class="nav-link space" href="totexp.html">Total Expense</a>
                 </nav>
             </div>
@@ -181,13 +181,16 @@
                                     <div class="form-popup" id="myFormin">
 
                                     <input type="checkbox" id="show">
-                                    <label for="show" class="btn-block" style="text-align: center; padding-top: 8px;">Edit</label>
+                                    <label for="show" class="btn-block" style="text-align: center; padding-top: 8px;">Used</label>
                                     <div class="container">
                                         <label for="show" class="close-btn fas fa-times" title="close"></label>
                                         <div class="text" style="margin: 0 0 15% 0;">
                                             Material Outward
                                         </div>
-                                        <form class="form-container" action="http://localhost:3000/mato/material-outward" method="POST">
+                                        <form id="formm_ccx" action="http://localhost:3000/mato/material-outward" method="POST">
+                                            <div class="data">
+                                                <input type="text" required placeholder="Used Date " name="Date_u">
+                                            </div>
                                             <div class="data">
                                                 <input type="text" required placeholder="Vendor Name" name="Vendor_name">
                                             </div>
@@ -196,7 +199,7 @@
                                                 <input type="text" required placeholder="Name of the Material" name="Name_of_Material" >
                                             </div>
                                             <div class="data">
-                                                <input type="number" required placeholder="Used Quantity" name="Used_quantity">
+                                                <input type="number" required placeholder="Used Quantity" name="Used">
                                             </div>
                                             </div>
                                             <div class="btn1">
@@ -221,21 +224,23 @@
                 <div class="row">
                     <form>
                     <div class="table-responsive">
-                        <table id="tabla">
+                        <table id="tabla" class="table">
                             <thead>
                                 <tr>
                                     <th>DATE</th>
                                     <th>VENDOR</th>
                                     <th>MATERIAL</th>
+                                    <th>USED</th>
                                     <th>CURRENT STOCK</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>${Material.Date_o}</td>
+                                    <td>${Material.Date_u}</td>
                                     <td>${Material.Vendor_name}</td>
                                     <td>${Material.Name_of_Material}</td>
-                                    <td>${Material.Supplied_quantity}</td>
+                                    <td>${Material.Used}</td>
+                                    <td>${Material.Current_stock}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -251,7 +256,6 @@
         </div>
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
-                const form = document.querySelector('.form-container');
                 const tasksTableBody = document.querySelector('#tabla tbody');
             
                 // Function to fetch and display tasks
@@ -264,10 +268,11 @@
                         Materials.forEach(Material => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${Material.Date_o}</td>
+                            <td>${Material.Date_u}</td>
                             <td>${Material.Vendor_name}</td>
                             <td>${Material.Name_of_Material}</td>
-                            <td>${Material.Supplied_quantity}</td>
+                            <td>${Material.Used}</td>
+                            <td>${Material.Current_stock}</td>
                         `;
                         tasksTableBody.appendChild(row);
                         });
@@ -275,7 +280,41 @@
                     .catch(error => console.error('Error retrieving tasks:', error));
                 };
                 fetchAndDisplayTasks();
-                });
+                const form = document.getElementById('formm_ccx');
+          
+      
+          form.addEventListener('submit', async (event) => {
+          event.preventDefault(); // Prevent the default form submission behavior
+          const url = form.getAttribute('action');
+      
+              const formData = new FormData(form);
+              const taskData = {
+                  Date_u: formData.get('Date_u'),
+                  Vendor_name: formData.get('Vendor_name'),
+                  Name_of_Material: formData.get('Name_of_Material'),
+                  Used: formData.get('Used'),
+              };
+      
+              fetch('http://localhost:3000/mato/material-outward', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(taskData)
+              })
+              .then(response => {
+                  if (response.ok) {
+                      console.log('Record inserted successfully.');
+                      form.reset();
+                      fetchAndDisplayTasks(); // Update the display with the new task
+                  } else {
+                      console.error('Error inserting record.');
+                  }
+              })
+              .catch(error => console.error('Error inserting record:', error));
+          });
+      });
+    
             </script>
     </body>
     </html>

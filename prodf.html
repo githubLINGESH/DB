@@ -158,7 +158,7 @@
     
                 <div class="row">
                     
-                    <form id="form_c" action="http://localhost:3000/prodf/submitprodf" method="POST">
+                    <form id="form_ccc" action="http://localhost:3000/prodf/submitprodf" method="POST">
                         <input type="number" name="Item_code" id="code" placeholder="Item Code" required><br>
                         <input type="text" name="Item_name" id="name"  placeholder="Item Name" required><br>
                         <input type="text" name="category" id="categ"  placeholder="Category" required><br>
@@ -167,7 +167,7 @@
                         <input type="number" name="price" id="price"  placeholder="Price" required><br>
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button type="submit" class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
                     </div>
                 </div>
                     </form>
@@ -176,7 +176,7 @@
     
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block">Clear</button></div>
+                        <div class  ="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block">Clear</button></div>
                     </div>
                 </div>
     
@@ -208,7 +208,41 @@
 
 
         </div>
-        <script src="todo.js"></script>
+        <script >
+            const form = document.getElementById('form_ccc');
+                form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent the default form submission behavior
+                const url = form.getAttribute('action');
+                const formData = new FormData(form);
+                const taskDataa = {
+                    Item_code: formData.get('Item_code'),
+                    Item_name: formData.get('Item_name'),
+                    category: formData.get('category'),
+                    description: formData.get('description'),
+                    unit: formData.get('unit'),
+                    price: formData.get('price'),
+                };
+        
+                fetch('http://localhost:3000/prodf/submitprodf', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(taskDataa)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Record inserted successfully.');
+                        form.reset();
+                    // Show the success modal
+                        fetchAndDisplayTasks();// Update the display with the new task
+                    } else {
+                        console.error('Error inserting record.');
+                    }
+                })
+                .catch(error => console.error('Error inserting record:', error));
+            });
+        </script>
         
     </body>
     </html>

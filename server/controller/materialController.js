@@ -1,63 +1,77 @@
-    const path = require('path');
-    const s_materials = require('../model/materialModel');
+const path = require('path');
+const e_products = require('../model/prodModel');
 
-    exports.getMaterialPage = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', '..', 'matinf.html'));
-    };
+exports.getMaterialPage = (req, res) => {
+res.sendFile(path.join(__dirname, '..', '..', 'matinf.html'));
+};
 
-    exports.submitMaterial = async (req, res) => {
+exports.submitMaterial = async (req, res) => {
+
+try {
     const {
+        Date_i,
         Vendor_name,
         Name_of_Material,
-        Required_quantity,
         Supplied_quantity,
-        Unit_prize,
-        Date_o, // Rename Date to date or any other meaningful name
-        Current_stock,
-        Pay_expenses,
     } = req.body;
+        
+    const materialInward = await e_products.findOne({ Vendor_name ,Name_of_Material});
 
-    try {
-        const record = new s_materials({
-        Vendor_name: Vendor_name,
-        Name_of_Material: Name_of_Material,
-        Required_quantity: parseInt(Required_quantity),
-        Supplied_quantity: parseInt(Supplied_quantity),
-        Unit_prize: parseInt(Unit_prize),
-        Date_o: Date_o,
-        Current_stock: parseInt(Current_stock),
-        Pay_expenses: parseInt(Pay_expenses),
-        });
-
-        await record.save();
-        console.log('Record inserted successfully.');
-
-        res.status(200).send('Record inserted successfully.');
-    } catch (error) {
-        console.error('Error inserting record:', error);
-        res.status(500).send('Error inserting record.');
+    if (!materialInward) {
+        return res.status(404).json({ error: 'Material not found' });
     }
-    };
 
-    exports.getTasks = async (req, res) => {
+    // Calculate the updated supplied quantity after outward
+    const updatedreq = materialInward.Required_quantity - parseInt(Supplied_quantity);
+    const updsup=materialInward.Supplied_quantity + parseInt(Supplied_quantity);
+    const updatedprice = parseInt(updsup) * materialInward.Unit_prize;
+    // Update the supplied quantity in the material inward entry
+    materialInward.Supplied_quantity = updsup;
+    materialInward.Current_stock=parseInt(Current_stock)+ updsup;
+    materialInward.Required_quantity= updatedreq;
+    materialInward.Date_i = Date_i;
+    materialInward.Price = updatedprice;
+
+    // Save the updated material inward entry
+    await materialInward.save();
+    
+} catch (error) {
+    console.error('Error saving material outward', error);
+    res.status(500).json({ error: 'Error saving material outward' });
+}
+};
+
+// Controller to render the material outward page
+exports.getMaterialOutPage = async (req, res) => {
     try {
-        const tasks = await s_materials.find();
-        res.status(200).json(tasks);
+        const Materials = await e_products.find();
+        res.status(200).json(Materials);
     } catch (error) {
         console.error('Error retrieving tasks:', error);
         res.status(500).send('Error retrieving tasks.');
     }
     };
 
-    exports.searchMaterial = async (req, res) => {
-        const { Name_of_Material } = req.body;
-    
-        try {
-            const tasks = await s_materials.find({ Name_of_Material: Name_of_Material });
-    
-            res.status(200).json(tasks);
-        } catch (error) {
-            console.error('Error searching tasks:', error);
-            res.status(500).send('Error searching tasks.');
-        }
-        };
+
+exports.getTasks = async (req, res) => {
+try {
+    const tasks = await e_products.find();
+    res.status(200).json(tasks);
+} catch (error) {
+    console.error('Error retrieving tasks:', error);
+    res.status(500).send('Error retrieving tasks.');
+}
+};
+
+exports.searchMaterial = async (req, res) => {
+    const { Name_of_Material } = req.body;
+
+    try {
+        const tasks = await e_products.find({ Name_of_Material: Name_of_Material });
+
+        res.status(200).json(tasks);
+    } catch (error) {
+        console.error('Error searching tasks:', error);
+        res.status(500).send('Error searching tasks.');
+    }
+    };

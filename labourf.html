@@ -155,14 +155,14 @@
             
                         <div class="row">
                             
-                            <form id="form_c" action="http://localhost:3000/labour/submitlab" method="POST">
+                            <form id="form_cc" action="http://localhost:3000/labour/submitlab" method="POST">
                                 <input type="text" name="name" id="name" placeholder="Name" required><br>
                                 <input type="text" name="phone" id="phno"  placeholder="Phone No" required><br>
                                 <input type="text" name="Category" id="categ"  placeholder="Category" required><br>
                                 <input type="text" name="wages_per_shift" id="wages"  placeholder="Wages per Shift" required><br>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display: flex; align-items: center;">
-                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><button type="submit" class="btn-block save" style="background-color: white !important; color: black !important;">Save</button></div>
                                     </div>
                                 </div>
                             </form>
@@ -203,7 +203,39 @@
 
 
         </div>
-        <script src="todo.js"></script>
+        <script >
+            const form = document.getElementById('form_cc');
+                form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent the default form submission behavior
+                const url = form.getAttribute('action');
+                const formData = new FormData(form);
+                const taskDataa = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    Category: formData.get('Category'),
+                    wages_per_shift: formData.get('wages_per_shift'),
+                };
+        
+                fetch('http://localhost:3000/labour/submitlab', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(taskDataa)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Record inserted successfully.');
+                        form.reset();
+                    // Show the success modal
+                        fetchAndDisplayTasks();// Update the display with the new task
+                    } else {
+                        console.error('Error inserting record.');
+                    }
+                })
+                .catch(error => console.error('Error inserting record:', error));
+            });
+        </script>
         
     </body>
     </html>

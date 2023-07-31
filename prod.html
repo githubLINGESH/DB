@@ -113,8 +113,8 @@
   <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid" style="margin: 10px 20px;">
-            <a class="navbar-brand" href="#">
-              <img src="/assets/img/logo.png" alt="Construct Eaze" style="width: 280px;">
+            <a class="navbar-brand" href="home.html" >
+              <img   src="/assets/img/logo.png" alt="Construct Eaze" style="width: 280px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -187,6 +187,9 @@
                                         </div>
                                         <form id="formm" action="http://localhost:3000/prod/submitprod" method="POST">
                                           <div class="data">
+                                            <input type="text" name="Date_o" required placeholder="Order Date">
+                                        </div>
+                                          <div class="data">
                                               <input type="text" name="Vendor_name" required placeholder="Vendor Name">
                                           </div>
                                           <div class="data">
@@ -196,7 +199,9 @@
                                             <div class="data">
                                                 <input type="text" name="Required_quantity" required placeholder="Required Quantity">
                                             </div>
-                                  
+                                            <div class="data">
+                                              <input type="number"  name="Current_stock" required placeholder="Current Stock">
+                                          </div>
                                             <div class="data">
                                                 <input type="number"  name="Unit_prize" required placeholder="Unit Price">
                                             </div>
@@ -226,20 +231,22 @@
                         <table class="table" id="table">
                             <thead>
                                 <tr>
+                                    <th>DATE</th>
                                     <th>VENDOR</th>
                                     <th>MATERIAL</th>
                                     <th>REQUIRED</th>
                                     <th>UNIT PRICE</th>
-                                    <th>TOTAL</th>
+                                  
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                  <td>${task.Date_o}</td>
                                   <td>${task.Vendor_name}</td>
                                   <td>${task.Name_of_Material}</td>
                                   <td>${task.Required_quantity}</td>
                                   <td>${task.Unit_prize}</td>
-                                  <td>${task.prize}</td>
+                                
                                 </tr>
                             </tbody>
                         </table>
@@ -266,11 +273,12 @@
                       tasks.forEach(task => {
                           const row = document.createElement('tr');
                           row.innerHTML = `
+                              <td>${task.Date_o}</td>
                               <td>${task.Vendor_name}</td>
                               <td>${task.Name_of_Material}</td>
                               <td>${task.Required_quantity}</td>
                               <td>${task.Unit_prize}</td>
-                              <td>${task.prize}</td>
+                              
                           `;
                           tasksTableBody.appendChild(row);
                       });
@@ -282,7 +290,7 @@
           fetchAndDisplayTasks();
 
           const form = document.getElementById('formm');
-          const responseMessage = document.getElementById('responseMessage');
+          
       
           form.addEventListener('submit', async (event) => {
           event.preventDefault(); // Prevent the default form submission behavior
@@ -290,10 +298,11 @@
       
               const formData = new FormData(form);
               const taskData = {
+                  Date_o: formData.get('Date_o'),
                   Vendor_name: formData.get('Vendor_name'),
                   Name_of_Material: formData.get('Name_of_Material'),
                   Required_quantity: formData.get('Required_quantity'),
-                  Supplied_quantity: formData.get('Supplied_quantity'),
+                  Current_stock: formData.get('Current_stock'),
                   Unit_prize: formData.get('Unit_prize')
               };
       
