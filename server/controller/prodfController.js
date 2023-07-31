@@ -29,7 +29,6 @@
         res.status(500).send('Error inserting record.');
     }
     };
-       
         
         exports.handleFileUploads = (req, res) => {
         const file = req.file;
