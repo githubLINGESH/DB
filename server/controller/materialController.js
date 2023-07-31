@@ -13,23 +13,24 @@ try {
         Vendor_name,
         Name_of_Material,
         Supplied_quantity,
-        Unit_prize,
-        date, // Rename Date to date or any other meaningful name
-        Current_stock,
-        Pay_expenses,
     } = req.body;
+        
+    const materialInward = await e_products.findOne({ Vendor_name ,Name_of_Material});
 
-    try {
-        const record = new s_materials({
-        Vendor_name: Vendor_name,
-        Name_of_Material: Name_of_Material,
-        Required_quantity: parseInt(Required_quantity),
-        Supplied_quantity: parseInt(Supplied_quantity),
-        Unit_prize: parseInt(Unit_prize),
-        Date: date,
-        Current_stock: parseInt(Current_stock),
-        Pay_expenses: parseInt(Pay_expenses),
-        });
+    if (!materialInward) {
+        return res.status(404).json({ error: 'Material not found' });
+    }
+
+    // Calculate the updated supplied quantity after outward
+    const updatedreq = materialInward.Required_quantity - parseInt(Supplied_quantity);
+    const updsup=materialInward.Supplied_quantity + parseInt(Supplied_quantity);
+    const updatedprice = parseInt(updsup) * materialInward.Unit_prize;
+    // Update the supplied quantity in the material inward entry
+    materialInward.Supplied_quantity = updsup;
+    materialInward.Current_stock=parseInt(Current_stock)+ updsup;
+    materialInward.Required_quantity= updatedreq;
+    materialInward.Date_i = Date_i;
+    materialInward.Price = updatedprice;
 
     // Save the updated material inward entry
     await materialInward.save();
