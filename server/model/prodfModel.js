@@ -28,6 +28,6 @@
 
     });
 
-    const e_prod = mongoose.model('e_prod', prodSchema);
+    const e_prods = mongoose.model('e_prods', prodSchema);
 
-    module.exports = e_prod;
+    module.exports = e_prods;

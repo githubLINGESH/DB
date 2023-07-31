@@ -7,25 +7,31 @@ res.sendFile(path.join(__dirname, '..', '..', 'prod.html'));
 
 exports.submitMaterial = async (req, res) => {
 const {
+    Date_o,
     Vendor_name,
     Name_of_Material,
     Required_quantity,
-    Supplied_quantity,
+    Current_stock,
     Unit_prize
 } = req.body;
 
 try {
-    const prize = parseInt(Required_quantity) * parseInt(Unit_prize);
+    //const prize = parseInt(Required_quantity) * parseInt(Unit_prize);
     const record = new e_products({
+    id: null,
+    Date_o:Date_o,
+    Date_i:null,
+    Date_u:null,
     Vendor_name: Vendor_name,
     Name_of_Material: Name_of_Material,
     Required_quantity: parseInt(Required_quantity),
     Supplied_quantity: 0,
     Unit_prize: parseInt(Unit_prize),
-    prize:prize
+    Used:0,
+    Current_stock:parseInt(Current_stock),
+    Price:0
+   
     });
-
-
     await record.save();
     console.log('Record inserted successfully.');
     res.status(200).send('Record inserted successfully.');
